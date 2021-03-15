@@ -1,7 +1,7 @@
 ---
 title: 자바 버전별 변경사항
 author: Arasia
-date: 2021-03-10 00:33:00 +0900
+date: 2021-03-15 00:43:52 +0900
 categories: [Language, Java]
 tags: [java]
 ---
@@ -39,6 +39,8 @@ tags: [java]
 
 ## JDK 1.7
 
+> [Oracle Java Doc(Java 7)](https://docs.oracle.com/javase/specs/jls/se7/html/index.html)
+
 ### Type Interface
 
 ``` java
@@ -49,6 +51,12 @@ List<Integer> list = new ArrayList<>();
 
 ### String value in Switch
 
+> [Oracle Java Doc(Java 7) - The Swich Statement](https://docs.oracle.com/javase/specs/jls/se7/html/jls-14.html#jls-14.11)
+>
+> String value can use Switch Value
+
+- Example
+
 ``` java
 switch(sport) {
     case "SOCCER" : 
@@ -57,9 +65,31 @@ switch(sport) {
 }
 ```
 
-- String value can use Switch Value
+### The Try Statement
 
-### try-with-resource
+> [Oracle Java Doc(Java 7) - The try Statement](https://docs.oracle.com/javase/specs/jls/se7/html/jls-14.html#jls-14.20)
+
+#### Catching Multiple Exception Type in Single Catch Block
+
+> Multi Exception in Single Catch Block
+>
+> If One Exception is Sub Class relationship of other Class, occur multi-catch error
+
+```java
+try {
+    ...
+} catch (ClassNotFoundExeption | SQLException ex) {
+    ex.printStackTrace();
+}
+```
+
+#### try-with-resource
+
+> [Oracle Java Doc(Java 7) - try-with-resources](https://docs.oracle.com/javase/specs/jls/se7/html/jls-14.html#jls-14.20.3)
+>
+> If Resource implement AutoCloseable or Closeable, try-with-resource can auto return that resource
+
+- Example
 
 ```java
 try(
@@ -77,8 +107,6 @@ try(
 }
 ```
 
-- If Resource implement AutoCloseable or Closeable, try-with-resource can auto return that resource
-
 ### Underscore In Numeric literal
 
 ```java
@@ -95,19 +123,6 @@ long ssn = _111_22_3333L; // Numeric literal can't start of Underscore
 ```
 
 - Underscore can be used as display of numeric literal
-
-### Catching Multiple Exception Type in Single Catch Block
-
-```java
-try {
-    ...
-} catch (ClassNotFoundExeption | SQLException ex) {
-    ex.printStackTrace();
-}
-```
-
-- Multi Exception in Single Catch Block
-- If One Exception is Sub Class relationship of other Class, occur multi-catch error
 
 ### JAVA NIO 2.0
 
@@ -135,14 +150,109 @@ public void func() throws ParseException, IOException {
 
 ## JDK 1.8
 
+> [Oracle Java Doc(Java 8)](https://docs.oracle.com/javase/specs/jls/se8/html/index.html)
+
 ### Lambda Expression
 
+> [Oracle Java Doc(Java 8) - Lambda Expressions](https://docs.oracle.com/javase/specs/jls/se8/html/jls-15.html#jls-15.27)
+>
+> Lambda에서 입력받는 매개변수에 대한 Variable Type을 추론하여 동작한다
+>
+> 간략한 코드는 Block 및 return을 생략 가능하다
+>
+> 매개변수가 하나라면 전달되는 Parameter를 감싸는 괄호도 생략 가능하다
+>
+> 람다식의 평가 결과는 Instance of Fuctional Interface를 만든다
+>
+> > "Evaluation of a lambda expression produces an instance of a functional interface"
+> >
+> > Functional Interface를 선언시 Lambda를 활용 할 수 있다.
+
+- Lambda Expression의 기본 형식
+
+  ``` java
+  (Parameters) -> {Function Body}
+  ```
+
+- Example of abled lambda expression
+
+``` java
+() -> {}                // No parameters; result is void
+() -> 42                // No parameters, expression body
+() -> null              // No parameters, expression body
+() -> { return 42; }    // No parameters, block body with return
+() -> { System.gc(); }  // No parameters, void block body
+
+() -> {                 // Complex block body with returns
+  if (true) return 12;
+  else {
+    int result = 15;
+    for (int i = 1; i < 10; i++)
+      result *= i;
+    return result;
+  }
+}                          
+
+(int x) -> x+1              // Single declared-type parameter
+(int x) -> { return x+1; }  // Single declared-type parameter
+(x) -> x+1                  // Single inferred-type parameter
+x -> x+1                    // Parentheses optional for
+                            // single inferred-type parameter
+
+(String s) -> s.length()      // Single declared-type parameter
+(Thread t) -> { t.start(); }  // Single declared-type parameter
+s -> s.length()               // Single inferred-type parameter
+t -> { t.start(); }           // Single inferred-type parameter
+
+(int x, int y) -> x+y  // Multiple declared-type parameters
+(x, y) -> x+y          // Multiple inferred-type parameters
+    
+// Illegal Example
+(x, int y) -> x+y    // Illegal: can't mix inferred and declared types
+(x, final y) -> x+y  // Illegal: no modifiers with inferred types
+```
+
+### Method Reference
+
+> [Oracle Java Doc(Java 8) - Method Referance Expressions](https://docs.oracle.com/javase/specs/jls/se8/html/jls-15.html#jls-15.13)
+
+### Functional Interface
+
+> [Oracle Java Doc(Java 8) - Functional Interfaces](https://docs.oracle.com/javase/specs/jls/se8/html/jls-9.html#jls-9.8)
+>
+> Object Class의 Method를 제외하고 단 하나의 Abstract method만을 가진 Interface
+>
+> 따라서 Functional Interface는 단 하나의 기능을 나타낸다
+
+- Fucntional Interface Annotation
+
+  > @FunctionalInterface를 사용하여 Compiler가 해당 Interface는 Functional Interface임을 명시하기 위해 사용
+
+- Example of Functional Interface
+
+  ``` java
+  @FunctionalInterface
+  interface ExampleOfFunctionalInterface {
+      public int doSomething(int x, int y);
+  }
+  
+  public class Test {
+      public static void main(String[] args) {
+          ExampleOfFunctionalInterface implemented = (x, y) -> x + y;		// Lambda를 활용한 Function 정의
+          System.out.println(implemented.doSomething(1, 2));				//result 3
+          System.out.println(implemented.doSomething(10, 20));			//result 30
+      }
+  }
+  ```
+
 ### Stream API
+
+### Default Method
+
+### Optional
 
 ### java.time Package
 
 - Less than Java 7, almost developer uses Joda-Time
 - In Java 8, java.time package is included
-
-### Java Script Engine Change
 
