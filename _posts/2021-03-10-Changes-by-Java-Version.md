@@ -216,6 +216,83 @@ public void func() throws ParseException, IOException {
   (x, final y) -> x+y  // Illegal: no modifiers with inferred types
   ```
 
+## Default Method
+
+> [Oracle Java Doc(Java 8) - Default Method](https://docs.oracle.com/javase/specs/jls/se8/html/jls-13.html#jls-13.5.6)
+>
+> Interface를 선언할때 구현될 Method의 기본 동작을 함께 선언 가능하다
+>
+> 다수의 Interface를 implement시 동일한 이름과 같은 순서의 Parameter Type을 받는 Default Method가 존재하는 경우 Error가 발생한다.
+
+- Example
+
+  ```java
+  interface Painter {
+      default void draw() {
+          System.out.println("Painter");
+      }
+  }
+  
+  interface Cowboy {}
+  
+  public class CowboyArtist implements Cowboy, Painter {
+      public static void main(String... args) {
+          new CowboyArtist().draw();							//Print "Painter"
+     }
+  }
+  ```
+
+- Illegal Example
+
+  ```java
+  interface Painter {
+      default void draw() {
+          System.out.println("Painter");
+      }
+  }
+  
+  interface Cowboy {
+      default void draw() {
+          System.out.println("Cowboy");
+      }
+  }
+  
+  public class CowboyArtist implements Cowboy, Painter {		// 같은 default Method가 존재하여 에러 발생
+      public static void main(String... args) {
+          new CowboyArtist().draw();
+     }
+  }
+  ```
+
+## Functional Interface
+
+> [Oracle Java Doc(Java 8) - Functional Interfaces](https://docs.oracle.com/javase/specs/jls/se8/html/jls-9.html#jls-9.8)
+>
+> Object Class의 Method를 제외하고 단 하나의 Abstract method만을 가진 Interface
+>
+> 따라서 Functional Interface는 단 하나의 기능을 나타낸다
+
+- Fucntional Interface Annotation
+
+  > @FunctionalInterface를 사용하여 Compiler가 해당 Interface는 Functional Interface임을 명시하기 위해 사용
+
+- Example
+
+  ``` java
+  @FunctionalInterface
+  interface ExampleOfFunctionalInterface {
+      public int doSomething(int x, int y);
+  }
+  
+  public class Test {
+      public static void main(String[] args) {
+          ExampleOfFunctionalInterface implemented = (x, y) -> x + y;		// Lambda를 활용한 Function 정의
+          System.out.println(implemented.doSomething(1, 2));				//result 3
+          System.out.println(implemented.doSomething(10, 20));			//result 30
+      }
+  }
+  ```
+
 ## Method Reference
 
 > [Oracle Java Doc(Java 8) - Method Referance Expressions](https://docs.oracle.com/javase/specs/jls/se8/html/jls-15.html#jls-15.13)
@@ -293,83 +370,6 @@ Supplier<Student> supplier = Student::new;
 Function<String, Student> function = Student::new;
 BiFunction<String, Integer, Student> biFunction = Student::new;
 ```
-
-## Default Method
-
-> [Oracle Java Doc(Java 8) - Default Method](https://docs.oracle.com/javase/specs/jls/se8/html/jls-13.html#jls-13.5.6)
->
-> Interface를 선언할때 구현될 Method의 기본 동작을 함께 선언 가능하다
->
-> 다수의 Interface를 implement시 동일한 이름과 같은 순서의 Parameter Type을 받는 Default Method가 존재하는 경우 Error가 발생한다.
-
-- Example
-
-  ```java
-  interface Painter {
-      default void draw() {
-          System.out.println("Painter");
-      }
-  }
-  
-  interface Cowboy {}
-  
-  public class CowboyArtist implements Cowboy, Painter {
-      public static void main(String... args) {
-          new CowboyArtist().draw();							//Print "Painter"
-     }
-  }
-  ```
-
-- Illegal Example
-
-  ```java
-  interface Painter {
-      default void draw() {
-          System.out.println("Painter");
-      }
-  }
-  
-  interface Cowboy {
-      default void draw() {
-          System.out.println("Cowboy");
-      }
-  }
-  
-  public class CowboyArtist implements Cowboy, Painter {		// 같은 default Method가 존재하여 에러 발생
-      public static void main(String... args) {
-          new CowboyArtist().draw();
-     }
-  }
-  ```
-
-## Functional Interface
-
-> [Oracle Java Doc(Java 8) - Functional Interfaces](https://docs.oracle.com/javase/specs/jls/se8/html/jls-9.html#jls-9.8)
->
-> Object Class의 Method를 제외하고 단 하나의 Abstract method만을 가진 Interface
->
-> 따라서 Functional Interface는 단 하나의 기능을 나타낸다
-
-- Fucntional Interface Annotation
-
-  > @FunctionalInterface를 사용하여 Compiler가 해당 Interface는 Functional Interface임을 명시하기 위해 사용
-
-- Example
-
-  ``` java
-  @FunctionalInterface
-  interface ExampleOfFunctionalInterface {
-      public int doSomething(int x, int y);
-  }
-  
-  public class Test {
-      public static void main(String[] args) {
-          ExampleOfFunctionalInterface implemented = (x, y) -> x + y;		// Lambda를 활용한 Function 정의
-          System.out.println(implemented.doSomething(1, 2));				//result 3
-          System.out.println(implemented.doSomething(10, 20));			//result 30
-      }
-  }
-  ```
 
 ## Stream API
 
