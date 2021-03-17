@@ -9,9 +9,9 @@ tags: [java]
 
 > 자바 버전중 LTS인 버전에 대한 변경사항들을 정리
 
-## Overview
+# Overview
 
-### Java Release History
+## Java Release History
 
 | version | Release Date | End of Free Public Updates | Extended Support Until |
 | --- | --- | --- | --- |
@@ -37,19 +37,21 @@ tags: [java]
 
 ---
 
-## JDK 1.7
+# JDK 1.7
 
 > [Oracle Java Doc(Java 7)](https://docs.oracle.com/javase/specs/jls/se7/html/index.html)
 
-### Type Interface
+## Type Interface
 
-``` java
-List<Integer> list = new ArrayList<>();
-```
+> Generic Type Parameter can skip -> "<>"
 
-- Generic Type Parameter can skip -> "<>"
+- Example
 
-### String value in Switch
+  ```java
+  List<Integer> list = new ArrayList<>();
+  ```
+
+## String value in Switch
 
 > [Oracle Java Doc(Java 7) - The Swich Statement](https://docs.oracle.com/javase/specs/jls/se7/html/jls-14.html#jls-14.11)
 >
@@ -57,19 +59,19 @@ List<Integer> list = new ArrayList<>();
 
 - Example
 
-``` java
-switch(sport) {
-    case "SOCCER" : 
-    case "BASKETBALL" : 
-    default : 
-}
-```
+  ``` java
+  switch(sport) {
+      case "SOCCER" : 
+      case "BASKETBALL" : 
+      default : 
+  }
+  ```
 
-### The Try Statement
+## The Try Statement
 
 > [Oracle Java Doc(Java 7) - The try Statement](https://docs.oracle.com/javase/specs/jls/se7/html/jls-14.html#jls-14.20)
 
-#### Catching Multiple Exception Type in Single Catch Block
+### Catching Multiple Exception Type in Single Catch Block
 
 > Multi Exception in Single Catch Block
 >
@@ -83,7 +85,7 @@ try {
 }
 ```
 
-#### try-with-resource
+### try-with-resource
 
 > [Oracle Java Doc(Java 7) - try-with-resources](https://docs.oracle.com/javase/specs/jls/se7/html/jls-14.html#jls-14.20.3)
 >
@@ -91,23 +93,25 @@ try {
 
 - Example
 
-```java
-try(
-   		FileInputStream fin = new FileInputStream("info.xml");
-    	BufferedReader br = new BufferedReader(new InputStreamReader(fin));
-   ) {
-    if(br.ready()) {
-        String line1 = br.readLine();
-        System.out.println(line1);
-    }
-} catch (FileNotFoundException ex) {
-    System.out.println("Info.xml is not found");
-} catch (IOException ex) {
-    System.out.printLn("Can't read the file")
-}
-```
+  ```java
+  try(
+     		FileInputStream fin = new FileInputStream("info.xml");
+      	BufferedReader br = new BufferedReader(new InputStreamReader(fin));
+     ) {
+      if(br.ready()) {
+          String line1 = br.readLine();
+          System.out.println(line1);
+      }
+  } catch (FileNotFoundException ex) {
+      System.out.println("Info.xml is not found");
+  } catch (IOException ex) {
+      System.out.printLn("Can't read the file")
+  }
+  ```
 
-### Underscore In Numeric literal
+  
+
+## Underscore In Numeric literal
 
 ```java
 // right Case
@@ -124,9 +128,9 @@ long ssn = _111_22_3333L; // Numeric literal can't start of Underscore
 
 - Underscore can be used as display of numeric literal
 
-### JAVA NIO 2.0
+## JAVA NIO 2.0
 
-### More Precise Rethrowing of Exception
+## More Precise Rethrowing of Exception
 
 ``` java
 public void func() throws ParseException, IOException {
@@ -142,17 +146,17 @@ public void func() throws ParseException, IOException {
 
 - Function can throw Precise Exception
 
-### Update of Array List & Hash Map
+## Update of Array List & Hash Map
 
 - Array List initial capacity is modified ten to zero
 
 ---
 
-## JDK 1.8
+# JDK 1.8
 
 > [Oracle Java Doc(Java 8)](https://docs.oracle.com/javase/specs/jls/se8/html/index.html)
 
-### Lambda Expression
+## Lambda Expression
 
 > [Oracle Java Doc(Java 8) - Lambda Expressions](https://docs.oracle.com/javase/specs/jls/se8/html/jls-15.html#jls-15.27)
 >
@@ -174,49 +178,171 @@ public void func() throws ParseException, IOException {
   (Parameters) -> {Function Body}
   ```
 
-- Example of abled lambda expression
+- Example
 
-``` java
-() -> {}                // No parameters; result is void
-() -> 42                // No parameters, expression body
-() -> null              // No parameters, expression body
-() -> { return 42; }    // No parameters, block body with return
-() -> { System.gc(); }  // No parameters, void block body
+  ``` java
+  () -> {}                // No parameters; result is void
+  () -> 42                // No parameters, expression body
+  () -> null              // No parameters, expression body
+  () -> { return 42; }    // No parameters, block body with return
+  () -> { System.gc(); }  // No parameters, void block body
+  
+  () -> {                 // Complex block body with returns
+    if (true) return 12;
+    else {
+      int result = 15;
+      for (int i = 1; i < 10; i++)
+        result *= i;
+      return result;
+    }
+  }                          
+  
+  (int x) -> x+1              // Single declared-type parameter
+  (int x) -> { return x+1; }  // Single declared-type parameter
+  (x) -> x+1                  // Single inferred-type parameter
+  x -> x+1                    // Parentheses optional for
+                              // single inferred-type parameter
+  
+  (String s) -> s.length()      // Single declared-type parameter
+  (Thread t) -> { t.start(); }  // Single declared-type parameter
+  s -> s.length()               // Single inferred-type parameter
+  t -> { t.start(); }           // Single inferred-type parameter
+  
+  (int x, int y) -> x+y  // Multiple declared-type parameters
+  (x, y) -> x+y          // Multiple inferred-type parameters
+      
+  // Illegal Example
+  (x, int y) -> x+y    // Illegal: can't mix inferred and declared types
+  (x, final y) -> x+y  // Illegal: no modifiers with inferred types
+  ```
 
-() -> {                 // Complex block body with returns
-  if (true) return 12;
-  else {
-    int result = 15;
-    for (int i = 1; i < 10; i++)
-      result *= i;
-    return result;
-  }
-}                          
-
-(int x) -> x+1              // Single declared-type parameter
-(int x) -> { return x+1; }  // Single declared-type parameter
-(x) -> x+1                  // Single inferred-type parameter
-x -> x+1                    // Parentheses optional for
-                            // single inferred-type parameter
-
-(String s) -> s.length()      // Single declared-type parameter
-(Thread t) -> { t.start(); }  // Single declared-type parameter
-s -> s.length()               // Single inferred-type parameter
-t -> { t.start(); }           // Single inferred-type parameter
-
-(int x, int y) -> x+y  // Multiple declared-type parameters
-(x, y) -> x+y          // Multiple inferred-type parameters
-    
-// Illegal Example
-(x, int y) -> x+y    // Illegal: can't mix inferred and declared types
-(x, final y) -> x+y  // Illegal: no modifiers with inferred types
-```
-
-### Method Reference
+## Method Reference
 
 > [Oracle Java Doc(Java 8) - Method Referance Expressions](https://docs.oracle.com/javase/specs/jls/se8/html/jls-15.html#jls-15.13)
+>
+> Lambda Expression이 단 하나의 Method만 호출하는 경우 Method Reference로 전환 가능
+>
+> 전환시 불필요한 Parameter를 제외하고 (Class | Object)::Method 형태로 표현됨
 
-### Functional Interface
+### Class::Method
+
+``` java
+class Printer {
+    public static void print(String str){
+        System.out.println(str);
+    }
+}
+
+//Lambda - Functional Interface
+Consumer <Integer> consumerLambda = (str) -> Printer.print(str);
+//Method Reference - Functional Interface
+Consumer <Integer> consumerMethodReference = System.out::println;
+```
+
+### Class.Object::Method
+
+``` java
+class Printer {
+    public void print(String str){
+        System.out.println(str);
+    }
+}
+
+class Machine {
+    public static final Printer printer = new Printer();
+}
+
+//Lambda - Functional Interface
+Consumer <Integer> consumerLambda = (str) -> Machine.printer.print(str);
+//Method Reference - Functional Interface
+Consumer <Integer> consumerMethodReference = Machine.printer::print;
+```
+
+### Class::Constructor
+
+``` java
+class Student {
+    private String name;
+    private Integer age;
+    
+    Student() {
+    }
+
+    Student(String name) {
+        this.name = name;
+    }
+
+    Student(String name, Integer age) {
+        this.name = name;
+        this.age = age;
+    }
+}
+
+//Reference
+Student student1 = new Student();
+Student student2 = new Student("Peter");
+Student student3 = new Student("Sam", 20);
+
+//Lambda - Functional Interface
+Supplier<Student> supplier = () -> new Student();
+Function<String, Student> function = (name) -> new Student(name);
+BiFunction<String, Integer, Student> biFunction = (name, age) -> new Student(name, age);
+
+//Method Reference - Functional Interface
+Supplier<Student> supplier = Student::new;
+Function<String, Student> function = Student::new;
+BiFunction<String, Integer, Student> biFunction = Student::new;
+```
+
+## Default Method
+
+> [Oracle Java Doc(Java 8) - Default Method](https://docs.oracle.com/javase/specs/jls/se8/html/jls-13.html#jls-13.5.6)
+>
+> Interface를 선언할때 구현될 Method의 기본 동작을 함께 선언 가능하다
+>
+> 다수의 Interface를 implement시 동일한 이름과 같은 순서의 Parameter Type을 받는 Default Method가 존재하는 경우 Error가 발생한다.
+
+- Example
+
+  ```java
+  interface Painter {
+      default void draw() {
+          System.out.println("Painter");
+      }
+  }
+  
+  interface Cowboy {}
+  
+  public class CowboyArtist implements Cowboy, Painter {
+      public static void main(String... args) {
+          new CowboyArtist().draw();							//Print "Painter"
+     }
+  }
+  ```
+
+- Illegal Example
+
+  ```java
+  interface Painter {
+      default void draw() {
+          System.out.println("Painter");
+      }
+  }
+  
+  interface Cowboy {
+      default void draw() {
+          System.out.println("Cowboy");
+      }
+  }
+  
+  public class CowboyArtist implements Cowboy, Painter {		// 같은 default Method가 존재하여 에러 발생
+      public static void main(String... args) {
+          new CowboyArtist().draw();
+     }
+  }
+  ```
+
+## Functional Interface
 
 > [Oracle Java Doc(Java 8) - Functional Interfaces](https://docs.oracle.com/javase/specs/jls/se8/html/jls-9.html#jls-9.8)
 >
@@ -228,7 +354,7 @@ t -> { t.start(); }           // Single inferred-type parameter
 
   > @FunctionalInterface를 사용하여 Compiler가 해당 Interface는 Functional Interface임을 명시하기 위해 사용
 
-- Example of Functional Interface
+- Example
 
   ``` java
   @FunctionalInterface
@@ -245,13 +371,11 @@ t -> { t.start(); }           // Single inferred-type parameter
   }
   ```
 
-### Stream API
+## Stream API
 
-### Default Method
+## Optional
 
-### Optional
-
-### java.time Package
+## java.time Package
 
 - Less than Java 7, almost developer uses Joda-Time
 - In Java 8, java.time package is included

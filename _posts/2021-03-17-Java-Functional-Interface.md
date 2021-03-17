@@ -1,7 +1,7 @@
 ---
 title: Java Functional Interface
 author: Arasia
-date: 2021-03-15 21:33:00 +0900
+date: 2021-03-17 01:06:23 +0900
 categories: [Language, Java]
 tags: [java]
 ---
@@ -51,12 +51,16 @@ public class Test {
 # 자주 사용하는 Functional Interface
 
 > Java 8에서 제공되는 Functional Interface
+>
+> Package 경로 : java.util.function
 
 ## Runnable
 
-| Parameter Type | Return Type | Abstract Method Name | 설명                                                | 포함된 다른 Method |
-| -------------- | ----------- | -------------------- | --------------------------------------------------- | ------------------ |
-| X              | void        | run                  | Parameter 와 Return이 없고 지정된 Method를 수행한다 | X                  |
+> Parameter 와 Return이 없고 지정된 Method를 수행한다
+
+| Parameter Type | Return Type | Abstract Method Name | 포함된 다른 Method |
+| -------------- | ----------- | -------------------- | ------------------ |
+| X              | void        | run                  | X                  |
 
 ``` java
 @FunctionalInterface
@@ -67,9 +71,11 @@ public interface Runnable {
 
 ## Supplier
 
-| Parameter Type | Return Type | Abstract Method Name | 설명                                                         | 포함된 다른 Method |
-| -------------- | ----------- | -------------------- | ------------------------------------------------------------ | ------------------ |
-| X              | T           | get                  | Parameter 없이 지정된 Method를 수행하여 T 타입의 결과를 Return한다 | X                  |
+> Parameter 없이 지정된 Method를 수행하여 T 타입의 결과를 Return한다
+
+| Parameter Type | Return Type | Abstract Method Name | 포함된 다른 Method |
+| -------------- | ----------- | -------------------- | ------------------ |
+| X              | T           | get                  | X                  |
 
 ``` java
 @FunctionalInterface
@@ -81,9 +87,11 @@ public interface Supplier<T> {
 
 ## Consumer
 
-| Parameter Type | Return Type | Abstract Method Name | 설명                                                         | 포함된 다른 Method |
-| -------------- | ----------- | -------------------- | ------------------------------------------------------------ | ------------------ |
-| T              | void        | accept               | T 타입의 Parameter를 받아 지정된 Method를 수행하지만 Return은 없다 | andThen            |
+> T 타입의 Parameter를 받아 지정된 Method를 수행하지만 Return은 없다
+
+| Parameter Type | Return Type | Abstract Method Name | 설명 | 포함된 다른 Method |
+| -------------- | ----------- | -------------------- | ---- | ------------------ |
+| T              | void        | accept               |      | andThen            |
 
 ``` java
 @FunctionalInterface
@@ -100,9 +108,11 @@ public interface Consumer<T> {
 
 ## BiConsumer
 
-| Parameter Type | Return Type | Abstract Method Name | 설명                                                         | 포함된 다른 Method |
-| -------------- | ----------- | -------------------- | ------------------------------------------------------------ | ------------------ |
-| T, U           | void        | accetp               | T 타입과 U 타입의 Parameter를 받아 지정된 Method를 수행하지만 Return은 없다 | andThen            |
+> T 타입과 U 타입의 Parameter를 받아 지정된 Method를 수행하지만 Return은 없다
+
+| Parameter Type | Return Type | Abstract Method Name | 포함된 다른 Method |
+| -------------- | ----------- | -------------------- | ------------------ |
+| T, U           | void        | accept               | andThen            |
 
 ``` java
 @FunctionalInterface
@@ -122,9 +132,11 @@ public interface BiConsumer<T, U> {
 
 ## Function
 
-| Parameter Type | Return Type | Abstract Method Name | 설명                                                         | 포함된 다른 Method                 |
-| -------------- | ----------- | -------------------- | ------------------------------------------------------------ | ---------------------------------- |
-| T              | R           | apply                | T 타입의 Parameter를 받아 지정된 Method를 수행하여 R 타입의 결과를 Return한다 | compose<br />andThen<br />identity |
+>  T 타입의 Parameter를 받아 지정된 Method를 수행하여 R 타입의 결과를 Return한다
+
+| Parameter Type | Return Type | Abstract Method Name | 포함된 다른 Method                 |
+| -------------- | ----------- | -------------------- | ---------------------------------- |
+| T              | R           | apply                | compose<br />andThen<br />identity |
 
 ``` java
 @FunctionalInterface
@@ -149,9 +161,13 @@ public interface Function<T, R> {
 
 ## UnaryOpertator
 
-| Parameter Type | Return Type | Abstract Method Name | 설명                                                         | 포함된 다른 Method                 |
-| -------------- | ----------- | -------------------- | ------------------------------------------------------------ | ---------------------------------- |
-| T              | T           | apply                | Function에서 Parameter와 Return Type이 동일한 경우<br />T 타입의 Parameter를 받아 지정된 Method를 수행하여 T 타입의 결과를 Return한다 | compose<br />andThen<br />identity |
+>  Function에서 Parameter와 Return Type이 동일한 Functional Interface
+>
+>  T 타입의 Parameter를 받아 지정된 Method를 수행하여 T 타입의 결과를 Return한다
+
+| Parameter Type | Return Type | Abstract Method Name | 포함된 다른 Method                 |
+| -------------- | ----------- | -------------------- | ---------------------------------- |
+| T              | T           | apply                | compose<br />andThen<br />identity |
 
 ``` java
 @FunctionalInterface
@@ -165,9 +181,11 @@ public interface UnaryOperator<T> extends Function<T, T> {
 
 ## BiFunction
 
-| Parameter Type | Return Type | Abstract Method Name | 설명                                                         | 포함된 다른 Method |
-| -------------- | ----------- | -------------------- | ------------------------------------------------------------ | ------------------ |
-| T, U           | R           | apply                | T 타입과 U 타입의 Parameter를 받아 지정된 Method를 수행하여 R 타입의 결과를 Return한다 | andThen            |
+>  T 타입과 U 타입의 Parameter를 받아 지정된 Method를 수행하여 R 타입의 결과를 Return한다
+
+| Parameter Type | Return Type | Abstract Method Name | 포함된 다른 Method |
+| -------------- | ----------- | -------------------- | ------------------ |
+| T, U           | R           | apply                | andThen            |
 
 ``` java
 @FunctionalInterface
@@ -184,9 +202,13 @@ public interface BiFunction<T, U, R> {
 
 ## BinaryOperator
 
-| Parameter Type | Return Type | Abstract Method Name | 설명                                                         | 포함된 다른 Method            |
-| -------------- | ----------- | -------------------- | ------------------------------------------------------------ | ----------------------------- |
-| T, T           | T           | apply                | BiFunction에서 모든 Parameter와 Return Type이 동일한 경우<br />T 타입의 Parameter를 받아 지정된 Method를 수행하여 T 타입의 결과를 Return한다 | andThen<br />maxBy<br />minBy |
+>  BiFunction에서 모든 Parameter와 Return Type이 동일한 Functional Interface
+>
+>  타입의 Parameter를 받아 지정된 Method를 수행하여 T 타입의 결과를 Return한다
+
+| Parameter Type | Return Type | Abstract Method Name | 포함된 다른 Method            |
+| -------------- | ----------- | -------------------- | ----------------------------- |
+| T, T           | T           | apply                | andThen<br />maxBy<br />minBy |
 
 ``` java
 @FunctionalInterface
@@ -206,9 +228,11 @@ public interface BinaryOperator<T> extends BiFunction<T,T,T> {
 
 ## Predicate
 
-| Parameter Type | Return Type | Abstract Method Name | 설명                                                         | 포함된 다른 Method                   |
-| -------------- | ----------- | -------------------- | ------------------------------------------------------------ | ------------------------------------ |
-| T              | boolean     | test                 | T 타입의 Parameter를 받아 지정된 Method를 수행하여 boolean 타입의 결과를 Return한다 | and<br />or<br />negate<br />isEqual |
+> T 타입의 Parameter를 받아 지정된 Method를 수행하여 boolean 타입의 결과를 Return한다
+
+| Parameter Type | Return Type | Abstract Method Name | 포함된 다른 Method                   |
+| -------------- | ----------- | -------------------- | ------------------------------------ |
+| T              | boolean     | test                 | and<br />or<br />negate<br />isEqual |
 
 ``` java
 @FunctionalInterface
@@ -240,9 +264,11 @@ public interface Predicate<T> {
 
 ## BiPredicate
 
-| Parameter Type | Return Type | Abstract Method Name | 설명                                                         | 포함된 다른 Method      |
-| -------------- | ----------- | -------------------- | ------------------------------------------------------------ | ----------------------- |
-| T, U           | boolean     | test                 | T 타입과 U 타입의 Parameter를 받아 지정된 Method를 수행하여 boolean 타입의 결과를 Return한다 | and<br />or<br />negate |
+> T 타입과 U 타입의 Parameter를 받아 지정된 Method를 수행하여 boolean 타입의 결과를 Return한다
+
+| Parameter Type | Return Type | Abstract Method Name | 포함된 다른 Method      |
+| -------------- | ----------- | -------------------- | ----------------------- |
+| T, U           | boolean     | test                 | and<br />or<br />negate |
 
 ``` java
 @FunctionalInterface
