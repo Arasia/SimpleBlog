@@ -1,29 +1,28 @@
 ---
 title: Java Functional Interface
 author: Arasia
-date: 2021-03-17 01:06:23 +0900
+date: 2021-03-23 01:21:23 +0900
 categories: [Language, Java]
 tags: [java]
 ---
 
 # Functional Interface
 
-> Object Class의 Method를 제외하고 단 하나의 Abstract method만을 가진 Interface
+> [Oracle Java Doc(Java 8) - Functional Interfaces﻿](https://docs.oracle.com/javase/specs/jls/se8/html/jls-9.html#jls-9.8)
 >
+> Object Class의 Method를 제외하고 단 하나의 Abstract method만을 가진 Interface  
 > 따라서 Functional Interface는 단 하나의 기능을 나타낸다
 
 ## Fucntional Interface Annotation
 
 > @FunctionalInterface를 사용하여 Compiler가 해당 Interface는 Functional Interface임을 명시하기 위해 사용
 
-- Example of Functional Interface Annotation
-
-  ``` java
-  @FunctionalInterface
-  interface ExampleOfFunctionalInterface {
-      public int doSomething(int x, int y);
-  }
-  ```
+``` java
+@FunctionalInterface
+interface ExampleOfFunctionalInterface {
+    public int doSomething(int x, int y);
+}
+```
 
 ## Lambda와 Functional Interface
 
@@ -41,18 +40,19 @@ interface ExampleOfFunctionalInterface {
 
 public class Test {
     public static void main(String[] args) {
-        ExampleOfFunctionalInterface implemented = (x, y) -> x + y;		//Lambda를 이용한 Method 선언
-        System.out.println(implemented.doSomething(1, 2));				//result 3
-        System.out.println(implemented.doSomething(10, 20));			//result 30
+        //Lambda를 이용한 Method 선언
+        ExampleOfFunctionalInterface implemented = (x, y) -> x + y;
+        
+        System.out.println(implemented.doSomething(1, 2)); //print : 3
+        System.out.println(implemented.doSomething(10, 20)); //print : 30
     }
 }
 ```
 
 # 자주 사용하는 Functional Interface
 
-> Java 8에서 제공되는 Functional Interface
->
-> Package 경로 : java.util.function
+> Java 8에서 제공되는 Functional Interface  
+>Package 경로 : java.util.function
 
 ## Runnable
 
@@ -89,9 +89,9 @@ public interface Supplier<T> {
 
 > T 타입의 Parameter를 받아 지정된 Method를 수행하지만 Return은 없다
 
-| Parameter Type | Return Type | Abstract Method Name | 설명 | 포함된 다른 Method |
-| -------------- | ----------- | -------------------- | ---- | ------------------ |
-| T              | void        | accept               |      | andThen            |
+| Parameter Type | Return Type | Abstract Method Name | 포함된 다른 Method |
+| -------------- | ----------- | -------------------- | ------------------ |
+| T              | void        | accept               | andThen            |
 
 ``` java
 @FunctionalInterface
@@ -161,9 +161,8 @@ public interface Function<T, R> {
 
 ## UnaryOpertator
 
->  Function에서 Parameter와 Return Type이 동일한 Functional Interface
->
->  T 타입의 Parameter를 받아 지정된 Method를 수행하여 T 타입의 결과를 Return한다
+>  Function에서 Parameter와 Return Type이 동일한 Functional Interface  
+>T 타입의 Parameter를 받아 지정된 Method를 수행하여 T 타입의 결과를 Return한다
 
 | Parameter Type | Return Type | Abstract Method Name | 포함된 다른 Method                 |
 | -------------- | ----------- | -------------------- | ---------------------------------- |
@@ -202,9 +201,8 @@ public interface BiFunction<T, U, R> {
 
 ## BinaryOperator
 
->  BiFunction에서 모든 Parameter와 Return Type이 동일한 Functional Interface
->
->  타입의 Parameter를 받아 지정된 Method를 수행하여 T 타입의 결과를 Return한다
+>  BiFunction에서 모든 Parameter와 Return Type이 동일한 Functional Interface  
+>T 타입의 Parameter를 받아 지정된 Method를 수행하여 T 타입의 결과를 Return한다
 
 | Parameter Type | Return Type | Abstract Method Name | 포함된 다른 Method            |
 | -------------- | ----------- | -------------------- | ----------------------------- |

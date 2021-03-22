@@ -1,7 +1,7 @@
 ---
 title: 자바 버전별 변경사항
 author: Arasia
-date: 2021-03-15 00:43:52 +0900
+date: 2021-03-19 01:23:52 +0900
 categories: [Language, Java]
 tags: [java]
 ---
@@ -45,11 +45,9 @@ tags: [java]
 
 > Generic Type Parameter can skip -> "<>"
 
-- Example
-
-  ```java
-  List<Integer> list = new ArrayList<>();
-  ```
+```java
+List<Integer> list = new ArrayList<>();
+```
 
 ## String value in Switch
 
@@ -57,15 +55,13 @@ tags: [java]
 >
 > String value can use Switch Value
 
-- Example
-
-  ``` java
-  switch(sport) {
-      case "SOCCER" : 
-      case "BASKETBALL" : 
-      default : 
-  }
-  ```
+``` java
+switch(sport) {
+    case "SOCCER" : 
+    case "BASKETBALL" : 
+    default : 
+}
+```
 
 ## The Try Statement
 
@@ -73,9 +69,8 @@ tags: [java]
 
 ### Catching Multiple Exception Type in Single Catch Block
 
-> Multi Exception in Single Catch Block
->
-> If One Exception is Sub Class relationship of other Class, occur multi-catch error
+> Multi Exception in Single Catch Block  
+>If One Exception is Sub Class relationship of other Class, occur multi-catch error
 
 ```java
 try {
@@ -91,27 +86,27 @@ try {
 >
 > If Resource implement AutoCloseable or Closeable, try-with-resource can auto return that resource
 
-- Example
+```java
+try(
+   		FileInputStream fin = new FileInputStream("info.xml");
+    	BufferedReader br = new BufferedReader(new InputStreamReader(fin));
+   ) {
+    if(br.ready()) {
+        String line1 = br.readLine();
+        System.out.println(line1);
+    }
+} catch (FileNotFoundException ex) {
+    System.out.println("Info.xml is not found");
+} catch (IOException ex) {
+    System.out.printLn("Can't read the file")
+}
+```
 
-  ```java
-  try(
-     		FileInputStream fin = new FileInputStream("info.xml");
-      	BufferedReader br = new BufferedReader(new InputStreamReader(fin));
-     ) {
-      if(br.ready()) {
-          String line1 = br.readLine();
-          System.out.println(line1);
-      }
-  } catch (FileNotFoundException ex) {
-      System.out.println("Info.xml is not found");
-  } catch (IOException ex) {
-      System.out.printLn("Can't read the file")
-  }
-  ```
 
-  
 
 ## Underscore In Numeric literal
+
+> Underscore can be used as display of numeric literal
 
 ```java
 // right Case
@@ -126,11 +121,9 @@ long creditCardNumber = 1234_5678_9012_3456_L; // Numeric literal can't end of U
 long ssn = _111_22_3333L; // Numeric literal can't start of Underscore
 ```
 
-- Underscore can be used as display of numeric literal
-
-## JAVA NIO 2.0
-
 ## More Precise Rethrowing of Exception
+
+> Function can throw Precise Exception
 
 ``` java
 public void func() throws ParseException, IOException {
@@ -144,11 +137,11 @@ public void func() throws ParseException, IOException {
 }
 ```
 
-- Function can throw Precise Exception
-
 ## Update of Array List & Hash Map
 
-- Array List initial capacity is modified ten to zero
+> Array List initial capacity is modified ten to zero
+
+## JAVA NIO 2.0
 
 ---
 
@@ -160,16 +153,12 @@ public void func() throws ParseException, IOException {
 
 > [Oracle Java Doc(Java 8) - Lambda Expressions](https://docs.oracle.com/javase/specs/jls/se8/html/jls-15.html#jls-15.27)
 >
-> Lambda에서 입력받는 매개변수에 대한 Variable Type을 추론하여 동작한다
->
-> 간략한 코드는 Block 및 return을 생략 가능하다
->
-> 매개변수가 하나라면 전달되는 Parameter를 감싸는 괄호도 생략 가능하다
->
-> 람다식의 평가 결과는 Instance of Fuctional Interface를 만든다
->
-> > "Evaluation of a lambda expression produces an instance of a functional interface"
-> >
+> Lambda에서 입력받는 매개변수에 대한 Variable Type을 추론하여 동작한다  
+>간략한 코드는 Block 및 return을 생략 가능하다  
+> 매개변수가 하나라면 전달되는 Parameter를 감싸는 괄호도 생략 가능하다  
+>람다식의 평가 결과는 Instance of Fuctional Interface를 만든다  
+> 
+>> "Evaluation of a lambda expression produces an instance of a functional interface"   
 > > Functional Interface를 선언시 Lambda를 활용 할 수 있다.
 
 - Lambda Expression의 기본 형식
@@ -220,9 +209,8 @@ public void func() throws ParseException, IOException {
 
 > [Oracle Java Doc(Java 8) - Default Method](https://docs.oracle.com/javase/specs/jls/se8/html/jls-13.html#jls-13.5.6)
 >
-> Interface를 선언할때 구현될 Method의 기본 동작을 함께 선언 가능하다
->
-> 다수의 Interface를 implement시 동일한 이름과 같은 순서의 Parameter Type을 받는 Default Method가 존재하는 경우 Error가 발생한다.
+> Interface를 선언할때 구현될 Method의 기본 동작을 함께 선언 가능하다  
+>다수의 Interface를 implement시 동일한 이름과 같은 순서의 Parameter Type을 받는 Default Method가 존재하는 경우 Error가 발생한다.
 
 - Example
 
@@ -237,7 +225,7 @@ public void func() throws ParseException, IOException {
   
   public class CowboyArtist implements Cowboy, Painter {
       public static void main(String... args) {
-          new CowboyArtist().draw();							//Print "Painter"
+          new CowboyArtist().draw(); //Print "Painter"
      }
   }
   ```
@@ -257,7 +245,7 @@ public void func() throws ParseException, IOException {
       }
   }
   
-  public class CowboyArtist implements Cowboy, Painter {		// 같은 default Method가 존재하여 에러 발생
+  public class CowboyArtist implements Cowboy, Painter { // 같은 default Method가 존재하여 에러 발생
       public static void main(String... args) {
           new CowboyArtist().draw();
      }
@@ -266,10 +254,10 @@ public void func() throws ParseException, IOException {
 
 ## Functional Interface
 
-> [Oracle Java Doc(Java 8) - Functional Interfaces](https://docs.oracle.com/javase/specs/jls/se8/html/jls-9.html#jls-9.8)
+> [Oracle Java Doc(Java 8) - Functional Interfaces](https://docs.oracle.com/javase/specs/jls/se8/html/jls-9.html#jls-9.8)  
+> [Functional Interface](https://arasia.github.io/SimpleBlog/posts/Java-Functional-Interface/)
 >
-> Object Class의 Method를 제외하고 단 하나의 Abstract method만을 가진 Interface
->
+> Object Class의 Method를 제외하고 단 하나의 Abstract method만을 가진 Interface  
 > 따라서 Functional Interface는 단 하나의 기능을 나타낸다
 
 - Fucntional Interface Annotation
@@ -286,9 +274,11 @@ public void func() throws ParseException, IOException {
   
   public class Test {
       public static void main(String[] args) {
-          ExampleOfFunctionalInterface implemented = (x, y) -> x + y;		// Lambda를 활용한 Function 정의
-          System.out.println(implemented.doSomething(1, 2));				//result 3
-          System.out.println(implemented.doSomething(10, 20));			//result 30
+          // Lambda를 활용한 Function 정의
+          ExampleOfFunctionalInterface implemented = (x, y) -> x + y;
+          
+          System.out.println(implemented.doSomething(1, 2)); // result 3
+          System.out.println(implemented.doSomething(10, 20)); // result 30
       }
   }
   ```
@@ -297,9 +287,8 @@ public void func() throws ParseException, IOException {
 
 > [Oracle Java Doc(Java 8) - Method Referance Expressions](https://docs.oracle.com/javase/specs/jls/se8/html/jls-15.html#jls-15.13)
 >
-> Lambda Expression이 단 하나의 Method만 호출하는 경우 Method Reference로 전환 가능
->
-> 전환시 불필요한 Parameter를 제외하고 (Class | Object)::Method 형태로 표현됨
+> Lambda Expression이 단 하나의 Method만 호출하는 경우 Method Reference로 전환 가능  
+>전환시 불필요한 Parameter를 제외하고 (Class | Object)::Method 형태로 표현됨
 
 ### Class::Method
 
@@ -310,9 +299,9 @@ class Printer {
     }
 }
 
-//Lambda - Functional Interface
+// Lambda - Functional Interface
 Consumer <Integer> consumerLambda = (str) -> Printer.print(str);
-//Method Reference - Functional Interface
+// Method Reference - Functional Interface
 Consumer <Integer> consumerMethodReference = System.out::println;
 ```
 
@@ -329,9 +318,9 @@ class Machine {
     public static final Printer printer = new Printer();
 }
 
-//Lambda - Functional Interface
+// Lambda - Functional Interface
 Consumer <Integer> consumerLambda = (str) -> Machine.printer.print(str);
-//Method Reference - Functional Interface
+// Method Reference - Functional Interface
 Consumer <Integer> consumerMethodReference = Machine.printer::print;
 ```
 
@@ -373,10 +362,52 @@ BiFunction<String, Integer, Student> biFunction = Student::new;
 
 ## Stream API
 
+> 외부 반복을 통해 작업하는 컬렉션과 다르게 내부 반복을 통해 작업을 수행  
+> 스트림은 재사용이 불가능함  
+> 스트림은 원본 데이터를 변경하지 않음  
+> Filter-Map 기반의 API를 사용하여 Lazy 연산을 통해 성능을 최적화  
+> parallelStream()을 통하여 간단한 병렬처리를 지원
+
+### 스트림의 기본동작
+
+1.  스트림 생성
+2.  스트림 중계 연산
+3.  스트림 최종 연산
+
+### Example
+
+```java
+Integer[] arr = new Integer[] {1, 2, 3, 4, 5};
+Stream<Integer> stream = Arrays.stream(arr);
+
+stream.map(i -> i * 2) // 각 인자 * 2 (중계 연산)
+    .forEach(System.out::println); // print (최종 연산) :  2 4 6 8 10
+
+stream.forEach(System.out::println); // Runtime Error : 스트림 재사용 불가 
+```
+
 ## Optional
+
+> 변수가 Null인지 해당 Object를 가지고있는지 판단할 수 없을 때 Null 처리를 유연하게 대처 가능
+
+```java
+Integer integer = null;
+Optional.ofNullable(integer).ifPresent(System.out::println); // null이므로 println이 Skip
+
+integer = 10;
+Optional.ofNullable(integer).ifPresent(System.out::println); // print : 10
+```
 
 ## java.time Package
 
-- Less than Java 7, almost developer uses Joda-Time
-- In Java 8, java.time package is included
+> Less than Java 7, almost developer uses Joda-Time  
+> In Java 8, java.time package is included
 
+```java
+LocalDateTime localDateTime = LocalDateTime.now();
+
+// print : 2021-03-22T22:38:20.66
+System.out.println(localDateTime.format(DateTimeFormatter.ISO_LOCAL_DATE_TIME)); 
+// print : 2021-03-22 10:38:20.660
+System.out.println(localDateTime.format(DateTimeFormatter.ofPattern("yyyy-MM-dd hh:mm:ss.SSS"))); 
+```
