@@ -19,7 +19,7 @@ const include = [
 
   /* Tabs */
   {% for tab in site.tabs %}
-    '{{ tab.url }}',
+    '{{ tab.url | relative_url }}',
   {% endfor %}
 
   /*--- Icons ---*/
