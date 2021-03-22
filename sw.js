@@ -24,6 +24,7 @@ self.addEventListener('install', (e) => {
   e.waitUntil(
     caches.open(cacheName).then((cache) => {
       console.log('Opened cache: ', cache);
+      console.log('Open Include: ', include);
       return cache.addAll(include);
     })
   );
