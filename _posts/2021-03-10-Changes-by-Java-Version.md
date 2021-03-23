@@ -56,10 +56,12 @@ List<Integer> list = new ArrayList<>();
 > String value can use Switch Value
 
 ``` java
+String sport = "SOCCER";
+
 switch(sport) {
-    case "SOCCER" : 
-    case "BASKETBALL" : 
-    default : 
+	case "SOCCER" : 
+	case "BASKETBALL" : 
+	default : 
 }
 ```
 
@@ -74,9 +76,9 @@ switch(sport) {
 
 ```java
 try {
-    ...
+	...
 } catch (ClassNotFoundExeption | SQLException ex) {
-    ex.printStackTrace();
+	ex.printStackTrace();
 }
 ```
 
@@ -88,17 +90,17 @@ try {
 
 ```java
 try(
-   		FileInputStream fin = new FileInputStream("info.xml");
-    	BufferedReader br = new BufferedReader(new InputStreamReader(fin));
-   ) {
-    if(br.ready()) {
-        String line1 = br.readLine();
-        System.out.println(line1);
-    }
+		FileInputStream fin = new FileInputStream("info.xml");
+		BufferedReader br = new BufferedReader(new InputStreamReader(fin));
+	) {
+	if(br.ready()) {
+		String line1 = br.readLine();
+		System.out.println(line1);
+	}
 } catch (FileNotFoundException ex) {
-    System.out.println("Info.xml is not found");
+	System.out.println("Info.xml is not found");
 } catch (IOException ex) {
-    System.out.printLn("Can't read the file")
+	System.out.printLn("Can't read the file")
 }
 ```
 
@@ -127,13 +129,13 @@ long ssn = _111_22_3333L; // Numeric literal can't start of Underscore
 
 ``` java
 public void func() throws ParseException, IOException {
-    try {
-        new FileInputStream("abc.txt").read();
-        new SimpleDateFormat("ddMMyyyy").parse("12-03-2014");
-    } catch (Exeption ex) {
-        System.out.println("Caught exception : " + ex.getMessage());
-        throw ex;
-    }
+	try {
+		new FileInputStream("abc.txt").read();
+		new SimpleDateFormat("ddMMyyyy").parse("12-03-2014");
+	} catch (Exeption ex) {
+		System.out.println("Caught exception : " + ex.getMessage());
+		throw ex;
+	}
 }
 ```
 
@@ -177,13 +179,13 @@ public void func() throws ParseException, IOException {
   () -> { System.gc(); }  // No parameters, void block body
   
   () -> {                 // Complex block body with returns
-    if (true) return 12;
-    else {
-      int result = 15;
-      for (int i = 1; i < 10; i++)
-        result *= i;
-      return result;
-    }
+  	if (true) return 12;
+  	else {
+  		int result = 15;
+  		for (int i = 1; i < 10; i++)
+  		result *= i;
+  		return result;
+  	}
   }                          
   
   (int x) -> x+1              // Single declared-type parameter
@@ -216,17 +218,17 @@ public void func() throws ParseException, IOException {
 
   ```java
   interface Painter {
-      default void draw() {
-          System.out.println("Painter");
-      }
+  	default void draw() {
+  		System.out.println("Painter");
+  	}
   }
   
   interface Cowboy {}
   
   public class CowboyArtist implements Cowboy, Painter {
-      public static void main(String... args) {
-          new CowboyArtist().draw(); //Print "Painter"
-     }
+  	public static void main(String... args) {
+  		new CowboyArtist().draw(); //Print "Painter"
+  	}
   }
   ```
 
@@ -234,21 +236,21 @@ public void func() throws ParseException, IOException {
 
   ```java
   interface Painter {
-      default void draw() {
-          System.out.println("Painter");
-      }
+  	default void draw() {
+  		System.out.println("Painter");
+  	}
   }
   
   interface Cowboy {
-      default void draw() {
-          System.out.println("Cowboy");
-      }
+  	default void draw() {
+  		System.out.println("Cowboy");
+  	}
   }
   
   public class CowboyArtist implements Cowboy, Painter { // 같은 default Method가 존재하여 에러 발생
-      public static void main(String... args) {
-          new CowboyArtist().draw();
-     }
+  	public static void main(String... args) {
+  		new CowboyArtist().draw();
+  	}
   }
   ```
 
@@ -269,17 +271,17 @@ public void func() throws ParseException, IOException {
   ``` java
   @FunctionalInterface
   interface ExampleOfFunctionalInterface {
-      public int doSomething(int x, int y);
+  	public int doSomething(int x, int y);
   }
   
   public class Test {
-      public static void main(String[] args) {
-          // Lambda를 활용한 Function 정의
-          ExampleOfFunctionalInterface implemented = (x, y) -> x + y;
-          
-          System.out.println(implemented.doSomething(1, 2)); // result 3
-          System.out.println(implemented.doSomething(10, 20)); // result 30
-      }
+  	public static void main(String[] args) {
+  		// Lambda를 활용한 Function 정의
+  		ExampleOfFunctionalInterface implemented = (x, y) -> x + y;
+  
+  		System.out.println(implemented.doSomething(1, 2)); // result 3
+  		System.out.println(implemented.doSomething(10, 20)); // result 30
+  	}
   }
   ```
 
@@ -294,9 +296,9 @@ public void func() throws ParseException, IOException {
 
 ``` java
 class Printer {
-    public static void print(String str){
-        System.out.println(str);
-    }
+	public static void print(String str){
+		System.out.println(str);
+	}
 }
 
 // Lambda - Functional Interface
@@ -309,13 +311,13 @@ Consumer <Integer> consumerMethodReference = System.out::println;
 
 ``` java
 class Printer {
-    public void print(String str){
-        System.out.println(str);
-    }
+	public void print(String str){
+		System.out.println(str);
+	}
 }
 
 class Machine {
-    public static final Printer printer = new Printer();
+	public static final Printer printer = new Printer();
 }
 
 // Lambda - Functional Interface
@@ -328,20 +330,19 @@ Consumer <Integer> consumerMethodReference = Machine.printer::print;
 
 ``` java
 class Student {
-    private String name;
-    private Integer age;
-    
-    Student() {
-    }
+	private String name;
+	private Integer age;
 
-    Student(String name) {
-        this.name = name;
-    }
+	Student() {}
 
-    Student(String name, Integer age) {
-        this.name = name;
-        this.age = age;
-    }
+	Student(String name) {
+		this.name = name;
+	}
+
+	Student(String name, Integer age) {
+		this.name = name;
+		this.age = age;
+	}
 }
 
 //Reference
@@ -381,7 +382,7 @@ Integer[] arr = new Integer[] {1, 2, 3, 4, 5};
 Stream<Integer> stream = Arrays.stream(arr);
 
 stream.map(i -> i * 2) // 각 인자 * 2 (중계 연산)
-    .forEach(System.out::println); // print (최종 연산) :  2 4 6 8 10
+	.forEach(System.out::println); // print (최종 연산) :  2 4 6 8 10
 
 stream.forEach(System.out::println); // Runtime Error : 스트림 재사용 불가 
 ```

@@ -20,7 +20,7 @@ tags: [java]
 ``` java
 @FunctionalInterface
 interface ExampleOfFunctionalInterface {
-    public int doSomething(int x, int y);
+	public int doSomething(int x, int y);
 }
 ```
 
@@ -35,17 +35,17 @@ interface ExampleOfFunctionalInterface {
 ``` java
 @FunctionalInterface
 interface ExampleOfFunctionalInterface {
-    public int doSomething(int x, int y);
+	public int doSomething(int x, int y);
 }
 
 public class Test {
-    public static void main(String[] args) {
-        //Lambda를 이용한 Method 선언
-        ExampleOfFunctionalInterface implemented = (x, y) -> x + y;
-        
-        System.out.println(implemented.doSomething(1, 2)); //print : 3
-        System.out.println(implemented.doSomething(10, 20)); //print : 30
-    }
+	public static void main(String[] args) {
+		//Lambda를 이용한 Method 선언
+		ExampleOfFunctionalInterface implemented = (x, y) -> x + y;
+
+		System.out.println(implemented.doSomething(1, 2)); //print : 3
+		System.out.println(implemented.doSomething(10, 20)); //print : 30
+	}
 }
 ```
 
@@ -65,7 +65,7 @@ public class Test {
 ``` java
 @FunctionalInterface
 public interface Runnable {
-    public abstract void run();
+	public abstract void run();
 }
 ```
 
@@ -80,9 +80,8 @@ public interface Runnable {
 ``` java
 @FunctionalInterface
 public interface Supplier<T> {
-    T get();
+	T get();
 }
-
 ```
 
 ## Consumer
@@ -96,14 +95,13 @@ public interface Supplier<T> {
 ``` java
 @FunctionalInterface
 public interface Consumer<T> {
-    void accept(T t);
+	void accept(T t);
 
-    default Consumer<T> andThen(Consumer<? super T> after) {
-        Objects.requireNonNull(after);
-        return (T t) -> { accept(t); after.accept(t); };
-    }
+	default Consumer<T> andThen(Consumer<? super T> after) {
+		Objects.requireNonNull(after);
+		return (T t) -> { accept(t); after.accept(t); };
+	}
 }
-
 ```
 
 ## BiConsumer
@@ -117,16 +115,16 @@ public interface Consumer<T> {
 ``` java
 @FunctionalInterface
 public interface BiConsumer<T, U> {
-    void accept(T t, U u);
+	void accept(T t, U u);
 
-    default BiConsumer<T, U> andThen(BiConsumer<? super T, ? super U> after) {
-        Objects.requireNonNull(after);
+	default BiConsumer<T, U> andThen(BiConsumer<? super T, ? super U> after) {
+		Objects.requireNonNull(after);
 
-        return (l, r) -> {
-            accept(l, r);
-            after.accept(l, r);
-        };
-    }
+		return (l, r) -> {
+			accept(l, r);
+			after.accept(l, r);
+		};
+	}
 }
 ```
 
@@ -141,21 +139,21 @@ public interface BiConsumer<T, U> {
 ``` java
 @FunctionalInterface
 public interface Function<T, R> {
-    R apply(T t);
+	R apply(T t);
 
-    default <V> Function<V, R> compose(Function<? super V, ? extends T> before) {
-        Objects.requireNonNull(before);
-        return (V v) -> apply(before.apply(v));
-    }
+	default <V> Function<V, R> compose(Function<? super V, ? extends T> before) {
+		Objects.requireNonNull(before);
+		return (V v) -> apply(before.apply(v));
+	}
 
-    default <V> Function<T, V> andThen(Function<? super R, ? extends V> after) {
-        Objects.requireNonNull(after);
-        return (T t) -> after.apply(apply(t));
-    }
+	default <V> Function<T, V> andThen(Function<? super R, ? extends V> after) {
+		Objects.requireNonNull(after);
+		return (T t) -> after.apply(apply(t));
+	}
 
-    static <T> Function<T, T> identity() {
-        return t -> t;
-    }
+	static <T> Function<T, T> identity() {
+		return t -> t;
+	}
 }
 ```
 
@@ -172,9 +170,9 @@ public interface Function<T, R> {
 @FunctionalInterface
 public interface UnaryOperator<T> extends Function<T, T> {
 
-    static <T> UnaryOperator<T> identity() {
-        return t -> t;
-    }
+	static <T> UnaryOperator<T> identity() {
+		return t -> t;
+	}
 }
 ```
 
@@ -189,14 +187,13 @@ public interface UnaryOperator<T> extends Function<T, T> {
 ``` java
 @FunctionalInterface
 public interface BiFunction<T, U, R> {
-    R apply(T t, U u);
+	R apply(T t, U u);
 
-    default <V> BiFunction<T, U, V> andThen(Function<? super R, ? extends V> after) {
-        Objects.requireNonNull(after);
-        return (T t, U u) -> after.apply(apply(t, u));
-    }
+	default <V> BiFunction<T, U, V> andThen(Function<? super R, ? extends V> after) {
+		Objects.requireNonNull(after);
+		return (T t, U u) -> after.apply(apply(t, u));
+	}
 }
-
 ```
 
 ## BinaryOperator
@@ -212,15 +209,15 @@ public interface BiFunction<T, U, R> {
 @FunctionalInterface
 public interface BinaryOperator<T> extends BiFunction<T,T,T> {
     
-    public static <T> BinaryOperator<T> minBy(Comparator<? super T> comparator) {
-        Objects.requireNonNull(comparator);
-        return (a, b) -> comparator.compare(a, b) <= 0 ? a : b;
-    }
+	public static <T> BinaryOperator<T> minBy(Comparator<? super T> comparator) {
+		Objects.requireNonNull(comparator);
+		return (a, b) -> comparator.compare(a, b) <= 0 ? a : b;
+	}
 
-    public static <T> BinaryOperator<T> maxBy(Comparator<? super T> comparator) {
-        Objects.requireNonNull(comparator);
-        return (a, b) -> comparator.compare(a, b) >= 0 ? a : b;
-    }
+	public static <T> BinaryOperator<T> maxBy(Comparator<? super T> comparator) {
+		Objects.requireNonNull(comparator);
+		return (a, b) -> comparator.compare(a, b) >= 0 ? a : b;
+	}
 }
 ```
 
@@ -235,28 +232,27 @@ public interface BinaryOperator<T> extends BiFunction<T,T,T> {
 ``` java
 @FunctionalInterface
 public interface Predicate<T> {
-    boolean test(T t);
+	boolean test(T t);
 
-    default Predicate<T> and(Predicate<? super T> other) {
-        Objects.requireNonNull(other);
-        return (t) -> test(t) && other.test(t);
-    }
+	default Predicate<T> and(Predicate<? super T> other) {
+		Objects.requireNonNull(other);
+		return (t) -> test(t) && other.test(t);
+	}
 
-    default Predicate<T> negate() {
-        return (t) -> !test(t);
-    }
+	default Predicate<T> negate() {
+		return (t) -> !test(t);
+	}
 
-    default Predicate<T> or(Predicate<? super T> other) {
-        Objects.requireNonNull(other);
-        return (t) -> test(t) || other.test(t);
-    }
+	default Predicate<T> or(Predicate<? super T> other) {
+		Objects.requireNonNull(other);
+		return (t) -> test(t) || other.test(t);
+	}
 
-    static <T> Predicate<T> isEqual(Object targetRef) {
-        return (null == targetRef)
-                ? Objects::isNull
-                : object -> targetRef.equals(object);
-    }
-
+	static <T> Predicate<T> isEqual(Object targetRef) {
+		return (null == targetRef)
+				? Objects::isNull
+				: object -> targetRef.equals(object);
+	}
 }
 ```
 
@@ -271,22 +267,21 @@ public interface Predicate<T> {
 ``` java
 @FunctionalInterface
 public interface BiPredicate<T, U> {
-    boolean test(T t, U u);
+	boolean test(T t, U u);
 
-    default BiPredicate<T, U> and(BiPredicate<? super T, ? super U> other) {
-        Objects.requireNonNull(other);
-        return (T t, U u) -> test(t, u) && other.test(t, u);
-    }
+	default BiPredicate<T, U> and(BiPredicate<? super T, ? super U> other) {
+		Objects.requireNonNull(other);
+		return (T t, U u) -> test(t, u) && other.test(t, u);
+	}
 
-    default BiPredicate<T, U> negate() {
-        return (T t, U u) -> !test(t, u);
-    }
+	default BiPredicate<T, U> negate() {
+		return (T t, U u) -> !test(t, u);
+	}
 
-    default BiPredicate<T, U> or(BiPredicate<? super T, ? super U> other) {
-        Objects.requireNonNull(other);
-        return (T t, U u) -> test(t, u) || other.test(t, u);
-    }
+	default BiPredicate<T, U> or(BiPredicate<? super T, ? super U> other) {
+		Objects.requireNonNull(other);
+		return (T t, U u) -> test(t, u) || other.test(t, u);
+	}
 }
-
 ```
 
