@@ -304,7 +304,7 @@ class Printer {
 // Lambda - Functional Interface
 Consumer <Integer> consumerLambda = (str) -> Printer.print(str);
 // Method Reference - Functional Interface
-Consumer <Integer> consumerMethodReference = System.out::println;
+Consumer <Integer> consumerMethodReference = Printer::print;
 ```
 
 ### Class.Object::Method
