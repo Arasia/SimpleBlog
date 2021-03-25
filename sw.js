@@ -24,9 +24,6 @@ function isExcluded(url) {
 self.addEventListener('install', (e) => {
   self.skipWaiting();
   e.waitUntil(caches.open(cacheName).then((cache) => {
-    // console.log('Opened cache: ', cache);
-    // console.log('Open Include: ', include);
-    
     return cache.addAll(include);
   }));
 });
@@ -34,15 +31,12 @@ self.addEventListener('install', (e) => {
 
 self.addEventListener('fetch', (e) => {
   e.respondWith(caches.match(e.request).then((r) => {
-    // console.log('[Service Worker] Fetching resource: ' + e.request.url); 
     return r || fetch(e.request).then(async (response) => {
-      // console.log('Fetch Response: ', response);
       if(!response || response.status !== 200 || response.type !== 'basic') {
         return response;
       }
 
       if (!isExcluded(e.request.url)) {
-        // console.log('[Service Worker] Caching new resource: ' + e.request.url);
         const cache = await caches.open(cacheName);
         cache.put(e.request, response.clone())
       }
