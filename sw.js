@@ -31,17 +31,16 @@ self.addEventListener('install', (e) => {
 
 self.addEventListener('fetch', (e) => {
   e.respondWith(caches.match(e.request).then((r) => {
-    return r || fetch(e.request).then(async (response) => {
-      if(!response || response.status !== 200 || response.type !== 'basic') {
+    return r || fetch(e.request).then((response) => {
+      return caches.open(cacheName).then((cache) => {
+        if (!isExcluded(e.request.url)) {
+          if (e.request.method === "GET") {
+            cache.put(e.request, response.clone());
+          }
+        }
+
         return response;
-      }
-
-      if (!isExcluded(e.request.url)) {
-        const cache = await caches.open(cacheName);
-        cache.put(e.request, response.clone())
-      }
-
-      return response
+      });
     });
   }));
 });
