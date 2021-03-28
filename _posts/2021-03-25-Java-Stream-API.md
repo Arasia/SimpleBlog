@@ -151,7 +151,7 @@ public interface Stream<T> extends BaseStream<T, Stream<T>> {
 
 	> 빈 Stream 생성
 
-	| Fucntion Name | Parameter | Return Type | 비고 |
+	| Function Name | Parameter | Return Type | 비고 |
 	| ------------- | --------- | ----------- | ---- |
 	| Stream.empty  | void      | Stream\<T\> |      |
 
@@ -164,7 +164,7 @@ public interface Stream<T> extends BaseStream<T, Stream<T>> {
 
 	> builder를 통한 생성
 
-	| Fucntion Name       | Parameter | Return Type  | 비고 |
+	| Function Name       | Parameter | Return Type  | 비고 |
 	| ------------------- | --------- | ------------ | ---- |
 	| Stream.\<T\>builder | void      | Builder\<T\> |      |
 
@@ -178,7 +178,7 @@ public interface Stream<T> extends BaseStream<T, Stream<T>> {
 	> 반드시 limit를 사용하여 최대 크기를 지정해주어야한다.  
 	> limit를 사용하지 않으면 Stream이 무제한으로 생성된다.
 
-	| Fucntion Name   | Parameter       | Return Type | 비고                   |
+	| Function Name   | Parameter       | Return Type | 비고                   |
 	| --------------- | --------------- | ----------- | ---------------------- |
 	| Stream.generate | Supplier\<T\> s | Stream\<T\> | limit를 통한 제한 필요 |
 
@@ -189,7 +189,7 @@ public interface Stream<T> extends BaseStream<T, Stream<T>> {
 
 - Stream.iterate()
 
-	| Fucntion Name   | Parameter                    | Return Type | 비고                   |
+	| Function Name   | Parameter                    | Return Type | 비고                   |
 	| --------------- | ---------------------------- | ----------- | ---------------------- |
 	| Stream.iterator | T seed, UnaryOperator\<T\> f | Stream\<T\> | limit를 통한 제한 필요 |
 
@@ -202,7 +202,7 @@ public interface Stream<T> extends BaseStream<T, Stream<T>> {
 
 - Stream.of()
 
-	| Fucntion Name | Parameter   | Return Type | 비고                       |
+	| Function Name | Parameter   | Return Type | 비고                       |
 	| ------------- | ----------- | ----------- | -------------------------- |
 	| Stream.of     | T t         | Stream\<T\> | Array 전달                 |
 	| Stream.of     | T... values | Stream\<T\> | One or More Parameter 전달 |
@@ -222,7 +222,7 @@ public interface Stream<T> extends BaseStream<T, Stream<T>> {
 
 	> Collection에서 제공하는 함수를 통한 Stream 생성
 
-	| Fucntion Name     | Parameter | Return Type | 비고 |
+	| Function Name     | Parameter | Return Type | 비고 |
 	| ----------------- | --------- | ----------- | ---- |
 	| Collection.stream | void      | Stream\<T\> |      |
 
@@ -238,7 +238,7 @@ public interface Stream<T> extends BaseStream<T, Stream<T>> {
 
 	> 두 개의 Stream을 하나의 Stream으로 통합
 
-	| Fucntion Name | Parameter                                    | Return Type | 비고 |
+	| Function Name | Parameter                                    | Return Type | 비고 |
 	| ------------- | -------------------------------------------- | ----------- | ---- |
 	| concat        | Stream<? extends T> a, Stream<? extends T> b | Stream\<T\> |      |
 
@@ -256,7 +256,7 @@ public interface Stream<T> extends BaseStream<T, Stream<T>> {
 	> Function에서 반환된 element를 모아 Stream으로 반환  
 	> Function의 결과 타입에 따라 반환되는 Stream의 element Type이 변경됨
 
-	| Fucntion Name | Parameter                               | Return Type | 비고 |
+	| Function Name | Parameter                               | Return Type | 비고 |
 	| ------------- | --------------------------------------- | ----------- | ---- |
 	| map           | Function<? super T, ? extends R> mapper | Stream\<R\> |      |
 
@@ -269,10 +269,10 @@ public interface Stream<T> extends BaseStream<T, Stream<T>> {
 
 - Stream.flatMap
 
-	> Stream내의 element를 Fucntion을 통해 가공하여 만들어진 Stream을 모아 하나의 Stream으로 반환  
+	> Stream내의 element를 Function을 통해 가공하여 만들어진 Stream을 모아 하나의 Stream으로 반환  
 	> Function의 결과 타입에 따라 반환되는 Stream의 element Type이 변경됨
 
-	| Fucntion Name | Parameter Type                                     | Return Type | 비고 |
+	| Function Name | Parameter Type                                     | Return Type | 비고 |
 	| ------------- | -------------------------------------------------- | ----------- | ---- |
 	| flatMap       | Function<? super T, ? extends Stream<? extends R>> | Stream\<R\> |      |
 
@@ -295,7 +295,7 @@ public interface Stream<T> extends BaseStream<T, Stream<T>> {
 
 	> Predicate의 결과가 True인 element를 모아 Stream으로 반환
 
-	| Fucntion Name | Parameter                       | Return Type | 비고 |
+	| Function Name | Parameter                       | Return Type | 비고 |
 	| ------------- | ------------------------------- | ----------- | ---- |
 	| filter        | Predeicate<? super T> predicate | Stream\<T\> |      |
 
@@ -310,7 +310,7 @@ public interface Stream<T> extends BaseStream<T, Stream<T>> {
 
   > Stream의 element 중복 제거
 
-  | Fucntion Name | Parameter | Return Type | 비고 |
+  | Function Name | Parameter | Return Type | 비고 |
   | ------------- | --------- | ----------- | ---- |
   | distinct      | void      | Stream\<T\> |      |
 
@@ -326,7 +326,7 @@ public interface Stream<T> extends BaseStream<T, Stream<T>> {
   > Stream의 element 정렬  
   > Comparator를 통한 정렬도 가능
 
-  | Fucntion Name | Parameter                        | Return Type | 비고 |
+  | Function Name | Parameter                        | Return Type | 비고 |
   | ------------- | -------------------------------- | ----------- | ---- |
   | sorted        | void                             | Stream\<T\> |      |
   | sorted        | Comparator<? super T> comparator | Stream\<T\> |      |
@@ -348,7 +348,7 @@ public interface Stream<T> extends BaseStream<T, Stream<T>> {
   > Stream의 element의 변화는 없음  
   > 각 element별 추가적인 작업 수행  
 
-  | Fucntion Name | Parameter                  | Return Type | 비고 |
+  | Function Name | Parameter                  | Return Type | 비고 |
   | ------------- | -------------------------- | ----------- | ---- |
   | peek          | Consumer<? super T> action | Stream\<T\> |      |
 
@@ -363,7 +363,7 @@ public interface Stream<T> extends BaseStream<T, Stream<T>> {
 
   > Stream의 중간 연산 수행 중 반환될 Stream의 element 갯수의 한도를 지정
 
-  | Fucntion Name | Parameter Type | Return Type | 비고 |
+  | Function Name | Parameter Type | Return Type | 비고 |
   | ------------- | -------------- | ----------- | ---- |
   | limit         | long maxSize   | Stream\<T\> |      |
 
@@ -378,7 +378,7 @@ public interface Stream<T> extends BaseStream<T, Stream<T>> {
 
 	> Stream의 중간 연산 수행 중 반환될 Stream의 element 중 초기에 건너띄울 element의 갯수를 지정
   
-	| Fucntion Name | Parameter Type | Return Type | 비고 |
+	| Function Name | Parameter Type | Return Type | 비고 |
 	| ------------- | -------------- | ----------- | ---- |
 	| skip          | long n         | Stream\<T\> |      |
 
@@ -398,7 +398,7 @@ public interface Stream<T> extends BaseStream<T, Stream<T>> {
 
   > Stream의 각 Element에 대한 action을 취하고 종료한다
 
-  | Fucntion Name | Parameter Type | Return Type | 비고 |
+  | Function Name | Parameter Type | Return Type | 비고 |
   | ------------- | -------------- | ----------- | ---- |
   | forEach | Consumer<? super T> action | void |      |
 
@@ -413,7 +413,7 @@ public interface Stream<T> extends BaseStream<T, Stream<T>> {
 
   > Stream을 Array로 반환하고 종료한다
 
-  | Fucntion Name | Parameter Type | Return Type | 비고 |
+  | Function Name | Parameter Type | Return Type | 비고 |
   | ------------- | -------------- | ----------- | ---- |
   | toArray | void | Object[] |      |
   | toArray | IntFunction<A[]> generator | A[] | |
@@ -433,7 +433,7 @@ public interface Stream<T> extends BaseStream<T, Stream<T>> {
   > Stream의 각 Element들에 대한 커스텀 집계를 하여 결과를 반환하고 종료한다  
   > 집계의 초기값을 지정할 수 있다
 
-  | Fucntion Name | Parameter | Return Type | 비고 |
+  | Function Name | Parameter | Return Type | 비고 |
   | ------------- | -------------- | ----------- | ---- |
   | reduce | BinaryOperator\<T\> accumulator | Optional\<T\> |      |
   | reduce | T identity, BinaryOperator\<T\> accumulator | T | |
@@ -460,7 +460,7 @@ public interface Stream<T> extends BaseStream<T, Stream<T>> {
 
   > Stream의 Element들을 R타입의 형식으로 모아 반환한다
 
-  | Fucntion Name | Parameter | Return Type | 비고 |
+  | Function Name | Parameter | Return Type | 비고 |
   | ------------- | -------------- | ----------- | ---- |
   | collect | Supplier\<R\> supplier, BiConsumer<R, ? super T> accumulator, BiConsumer<R, R> combiner | R |      |
   | collect | Collector<? super T, A, R> collector | R | |
@@ -482,7 +482,7 @@ public interface Stream<T> extends BaseStream<T, Stream<T>> {
   > Stream의 Element들을 comparator로 비교하여 최소값을 반환한다  
   > Stream이 비어있다면 Optional.empty을 반환한다
 
-  | Fucntion Name | Parameter | Return Type | 비고 |
+  | Function Name | Parameter | Return Type | 비고 |
   | ------------- | -------------- | ----------- | ---- |
   | min | Comparator<? super T> comparator | Optional\<T\> |      |
 
@@ -498,7 +498,7 @@ public interface Stream<T> extends BaseStream<T, Stream<T>> {
   > Stream의 Element들을 comparator로 비교하여 최대값을 반환한다  
   > Stream이 비어있다면 Optional.empty을 반환한다
 
-  | Fucntion Name | Parameter | Return Type | 비고 |
+  | Function Name | Parameter | Return Type | 비고 |
   | ------------- | -------------- | ----------- | ---- |
   | max | Comparator<? super T> comparator | Optional\<T\> |      |
 
@@ -513,7 +513,7 @@ public interface Stream<T> extends BaseStream<T, Stream<T>> {
 
   > Stream의 Element의 갯수를 반환한다.
 
-  | Fucntion Name | Parameter | Return Type | 비고 |
+  | Function Name | Parameter | Return Type | 비고 |
   | ------------- | -------------- | ----------- | ---- |
   | count | void | long |      |
 
@@ -528,7 +528,7 @@ public interface Stream<T> extends BaseStream<T, Stream<T>> {
 
   > Stream의 Element중 predicate의 연산 결과가 True인 Element가 1개라도 존재하면 True를 반환한다.
 
-  | Fucntion Name | Parameter | Return Type | 비고 |
+  | Function Name | Parameter | Return Type | 비고 |
   | ------------- | -------------- | ----------- | ---- |
   | anyMatch | Predicate<? super T> predicate | boolean |      |
 
@@ -548,7 +548,7 @@ public interface Stream<T> extends BaseStream<T, Stream<T>> {
 
   > Stream의 모든 Element의 predicate의 연산 결과가 True이면 True를 반환한다.
 
-  | Fucntion Name | Parameter | Return Type | 비고 |
+  | Function Name | Parameter | Return Type | 비고 |
   | ------------- | -------------- | ----------- | ---- |
   | allMatch | Predicate<? super T> predicate | boolean |      |
 
@@ -568,7 +568,7 @@ public interface Stream<T> extends BaseStream<T, Stream<T>> {
 
   > Stream의 모든 Element의 predicate의 연산 결과가 False이면 True를 반환한다.
 
-  | Fucntion Name | Parameter | Return Type | 비고 |
+  | Function Name | Parameter | Return Type | 비고 |
   | ------------- | -------------- | ----------- | ---- |
   | noneMatch | Predicate<? super T> predicate | boolean |      |
 
@@ -589,7 +589,7 @@ public interface Stream<T> extends BaseStream<T, Stream<T>> {
   > Stream의 첫번째 Element를 반환한다  
   > Stream이 비어있다면 Optional.empty을 반환한다
 
-  | Fucntion Name | Parameter | Return Type | 비고 |
+  | Function Name | Parameter | Return Type | 비고 |
   | ------------- | -------------- | ----------- | ---- |
   | findFirst | void | Optional\<T\> |      |
 
@@ -605,7 +605,7 @@ public interface Stream<T> extends BaseStream<T, Stream<T>> {
 	> Stream의 임의의 Element를 반환한다  
   > Stream이 비어있다면 Optional.empty을 반환한다
 	
-	| Fucntion Name | Parameter | Return Type | 비고 |
+	| Function Name | Parameter | Return Type | 비고 |
 	| ------------- | -------------- | ----------- | ---- |
 | findAny | void | Optional\<T\> |      |
 	
