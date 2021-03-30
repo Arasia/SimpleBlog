@@ -1,0 +1,391 @@
+<!DOCTYPE html><html lang="ko" mode="dark" ><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"><meta name="pv-cache-enabled" content="false"><meta name="generator" content="Jekyll v4.2.0" /><meta property="og:title" content="자바 버전별 변경사항" /><meta name="author" content="Arasia" /><meta property="og:locale" content="ko" /><meta name="description" content="자바 버전중 LTS인 버전에 대한 변경사항들을 정리" /><meta property="og:description" content="자바 버전중 LTS인 버전에 대한 변경사항들을 정리" /><link rel="canonical" href="https://arasia.github.io/SimpleBlog/posts/Changes-by-Java-Version/" /><meta property="og:url" content="https://arasia.github.io/SimpleBlog/posts/Changes-by-Java-Version/" /><meta property="og:site_name" content="Arasia’s Blog" /><meta property="og:type" content="article" /><meta property="article:published_time" content="2021-03-19T01:23:52+09:00" /><meta name="twitter:card" content="summary" /><meta property="twitter:title" content="자바 버전별 변경사항" /><meta name="twitter:site" content="@twitter_username" /><meta name="twitter:creator" content="@Arasia" /><meta name="google-site-verification" content="google_meta_tag_verification" /> <script type="application/ld+json"> {"headline":"자바 버전별 변경사항","dateModified":"2021-03-25T02:05:08+09:00","datePublished":"2021-03-19T01:23:52+09:00","description":"자바 버전중 LTS인 버전에 대한 변경사항들을 정리","url":"https://arasia.github.io/SimpleBlog/posts/Changes-by-Java-Version/","mainEntityOfPage":{"@type":"WebPage","@id":"https://arasia.github.io/SimpleBlog/posts/Changes-by-Java-Version/"},"@type":"BlogPosting","author":{"@type":"Person","name":"Arasia"},"@context":"https://schema.org"}</script><title>자바 버전별 변경사항 | Arasia's Blog</title><link rel="shortcut icon" href="/SimpleBlog/assets/img/favicons/favicon.ico" type="image/x-icon"><link rel="icon" href="/SimpleBlog/assets/img/favicons/favicon.ico" type="image/x-icon"><link rel="apple-touch-icon" href="/SimpleBlog/assets/img/favicons/apple-icon.png"><link rel="apple-touch-icon" href="/SimpleBlog/assets/img/favicons/apple-icon-precomposed.png"><link rel="apple-touch-icon" sizes="57x57" href="/SimpleBlog/assets/img/favicons/apple-icon-57x57.png"><link rel="apple-touch-icon" sizes="60x60" href="/SimpleBlog/assets/img/favicons/apple-icon-60x60.png"><link rel="apple-touch-icon" sizes="72x72" href="/SimpleBlog/assets/img/favicons/apple-icon-72x72.png"><link rel="apple-touch-icon" sizes="76x76" href="/SimpleBlog/assets/img/favicons/apple-icon-76x76.png"><link rel="apple-touch-icon" sizes="114x114" href="/SimpleBlog/assets/img/favicons/apple-icon-114x114.png"><link rel="apple-touch-icon" sizes="120x120" href="/SimpleBlog/assets/img/favicons/apple-icon-120x120.png"><link rel="apple-touch-icon" sizes="144x144" href="/SimpleBlog/assets/img/favicons/apple-icon-144x144.png"><link rel="apple-touch-icon" sizes="152x152" href="/SimpleBlog/assets/img/favicons/apple-icon-152x152.png"><link rel="apple-touch-icon" sizes="180x180" href="/SimpleBlog/assets/img/favicons/apple-icon-180x180.png"><link rel="icon" type="image/png" sizes="192x192" href="/SimpleBlog/assets/img/favicons/android-icon-192x192.png"><link rel="icon" type="image/png" sizes="32x32" href="/SimpleBlog/assets/img/favicons/favicon-32x32.png"><link rel="icon" type="image/png" sizes="96x96" href="/SimpleBlog/assets/img/favicons/favicon-96x96.png"><link rel="icon" type="image/png" sizes="16x16" href="/SimpleBlog/assets/img/favicons/favicon-16x16.png"><link rel="manifest" href="/SimpleBlog/assets/img/favicons/manifest.json"><meta name='msapplication-config' content='/SimpleBlog/assets/img/favicons/browserconfig.xml'><meta name="msapplication-TileColor" content="#ffffff"><meta name="msapplication-TileImage" content="/SimpleBlog/assets/img/favicons/ms-icon-144x144.png"><meta name="theme-color" content="#ffffff"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous"><link rel="dns-prefetch" href="https://fonts.gstatic.com"><link rel="preconnect" href="https://www.google-analytics.com" crossorigin="use-credentials"><link rel="dns-prefetch" href="https://www.google-analytics.com"><link rel="preconnect" href="https://www.googletagmanager.com" crossorigin="anonymous"><link rel="dns-prefetch" href="https://www.googletagmanager.com"><link rel="preconnect" href="cdn.jsdelivr.net"><link rel="dns-prefetch" href="cdn.jsdelivr.net"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha256-LA89z+k9fjgMKQ/kq4OO2Mrf8VltYml/VES+Rg0fh20=" crossorigin="anonymous"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.11.2/css/all.min.css" integrity="sha256-+N4/V/SbAFiW1MPBCXnfnP9QSN3+Keu+NlB+0ev/YKQ=" crossorigin="anonymous"><link rel="stylesheet" href="/SimpleBlog/assets/css/style.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/afeld/bootstrap-toc@1.0.1/dist/bootstrap-toc.min.css"> <script src="https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script> <script defer src="https://cdn.jsdelivr.net/combine/npm/popper.js@1.15.0,npm/bootstrap@4/dist/js/bootstrap.min.js"></script> <script defer src="/SimpleBlog/assets/js/dist/post.min.js"></script> <script defer src="/SimpleBlog/app.js"></script> <script defer src="https://www.googletagmanager.com/gtag/js?id="></script> <script> document.addEventListener("DOMContentLoaded", function(event) { window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', ''); }); </script><body data-spy="scroll" data-target="#toc"><div id="sidebar" class="d-flex flex-column align-items-end"><div class="profile-wrapper text-center"><div id="avatar"> <a href="/SimpleBlog/" alt="avatar" class="mx-auto"> <img src="/SimpleBlog/assets/img/avatar/avatar.jpg" alt="avatar" onerror="this.style.display='none'"> </a></div><div class="site-title mt-3"> <a href="/SimpleBlog/">Arasia's Blog</a></div><div class="site-subtitle font-italic">Arasia's Simple Blog</div></div><ul class="w-100"><li class="nav-item"> <a href="/SimpleBlog/" class="nav-link"> <i class="fa-fw fas fa-home ml-xl-3 mr-xl-3 unloaded"></i> <span>HOME</span> </a><li class="nav-item"> <a href="/SimpleBlog/categories/" class="nav-link"> <i class="fa-fw fas fa-stream ml-xl-3 mr-xl-3 unloaded"></i> <span>CATEGORIES</span> </a><li class="nav-item"> <a href="/SimpleBlog/tags/" class="nav-link"> <i class="fa-fw fas fa-tags ml-xl-3 mr-xl-3 unloaded"></i> <span>TAGS</span> </a><li class="nav-item"> <a href="/SimpleBlog/archives/" class="nav-link"> <i class="fa-fw fas fa-archive ml-xl-3 mr-xl-3 unloaded"></i> <span>ARCHIVES</span> </a><li class="nav-item"> <a href="/SimpleBlog/about/" class="nav-link"> <i class="fa-fw fas fa-info ml-xl-3 mr-xl-3 unloaded"></i> <span>ABOUT</span> </a></ul><div class="sidebar-bottom mt-auto d-flex flex-wrap justify-content-center"> <a href="https://github.com/Arasia" aria-label="github" target="_blank" rel="noopener"> <i class="fab fa-github-alt"></i> </a> <a href="https://twitter.com/twitter_username" aria-label="twitter" target="_blank" rel="noopener"> <i class="fab fa-twitter"></i> </a> <a href=" javascript:location.href = 'mailto:' + ['rlacndtjs261','gmail.com'].join('@')" aria-label="email" > <i class="fas fa-envelope"></i> </a> <a href="/SimpleBlog/feed.xml" aria-label="rss" > <i class="fas fa-rss"></i> </a></div></div><div id="topbar-wrapper" class="row justify-content-center topbar-down"><div id="topbar" class="col-11 d-flex h-100 align-items-center justify-content-between"> <span id="breadcrumb"> <span> <a href="/SimpleBlog/"> Posts </a> </span> <span>자바 버전별 변경사항</span> </span> <i id="sidebar-trigger" class="fas fa-bars fa-fw"></i><div id="topbar-title"> Post</div><i id="search-trigger" class="fas fa-search fa-fw"></i> <span id="search-wrapper" class="align-items-center"> <i class="fas fa-search fa-fw"></i> <input class="form-control" id="search-input" type="search" aria-label="search" placeholder="Search..."> <i class="fa fa-times-circle fa-fw" id="search-cleaner"></i> </span> <span id="search-cancel" >Cancel</span></div></div><div id="main-wrapper"><div id="main"><div class="row"><div id="post-wrapper" class="col-12 col-lg-11 col-xl-8"><div class="post pl-1 pr-1 pl-sm-2 pr-sm-2 pl-md-4 pr-md-4"><h1 data-toc-skip>자바 버전별 변경사항</h1><div class="post-meta text-muted d-flex flex-column"><div> <span class="semi-bold"> Arasia </span> <span class="timeago " data-toggle="tooltip" data-placement="bottom" title="Fri, Mar 19, 2021, 1:23 AM +0900" prep="on" > Mar 19 <i class="unloaded">2021-03-19T01:23:52+09:00</i> </span></div><div> <span> <span class="timeago lastmod" data-toggle="tooltip" data-placement="bottom" title="Thu, Mar 25, 2021, 2:05 AM +0900" prefix="Updated " > Mar 25 <i class="unloaded">2021-03-25T02:05:08+09:00</i> </span> </span> <span class="readtime" data-toggle="tooltip" data-placement="bottom" title="1869 words">10 min</span></div></div><div class="post-content"><blockquote><p>자바 버전중 LTS인 버전에 대한 변경사항들을 정리</p></blockquote><h1 id="overview">Overview</h1><h2 id="java-release-history">Java Release History</h2><div class="table-wrapper"><table><thead><tr><th>version<th>Release Date<th>End of Free Public Updates<th>Extended Support Until<tbody><tr><td>JDK Beta<td>1995<td> <td> <tr><td>JDK 1.0<td>January 1996<td> <td> <tr><td>JDK 1.1<td>February 1997<td> <td> <tr><td>J2SE 1.2<td>December 1998<td> <td> <tr><td>J2SE 1.3<td>May 2000<td> <td> <tr><td>J2SE 1.4<td>February 2002<td>October 2008<td>February 2013<tr><td>J2SE 5.0<td>September 2004<td>November 2009<td>April 2015<tr><td>Java SE 6<td>December 2006<td>April 2013<td>December 2018<br />December 2023, paid support for Zulu<tr><td>Java SE 7<td>July 2011<td>April 2015<td>July 2022<tr><td>Java SE 8 (LTS)<td>March 2014<td>January 2019 for Oracle (commercial)<br />December 2030 for Oracle (non-commercial)<br />December 2030 for Zulu<br />At least May 2026 for AdoptOpenJDK<br />At least May 2026 for Amazon Corretto<td>December 2030<tr><td>Java SE 9<td>September 2017<td>March 2018 for OpenJDK<td>N/A<tr><td>Java SE 10<td>March 2018<td>September 2018 for OpenJDK<td>N/A<tr><td>Java SE 11(LTS)<td>September 2018<td>September 2027 for Zulu<br />At least October 2024 for AdoptOpenJDK<br />At least September 2027 for Amazon Corretto<td>September 2026, or September 2027 for e.g. Zulu<tr><td>Java SE 12<td>March 2019<td>September 2019 for OpenJDK<td>N/A<tr><td>Java SE 13<td>September 2019<td>March 2020 for OpenJDK<td>N/A<tr><td>Java SE 14<td>March 2020<td>September 2020 for OpenJDK<td>N/A<tr><td>Java SE 15<td>September 2020<td>March 2021 for OpenJDK<br />March 2023 for Zulu<td>N/A<tr><td>Java SE 16<td>March 2021<td>September 2021 for OpenJDK<td>N/A<tr><td>Java SE 17(LTS)<td>September 2021<td>September 2030 for Zulu<td>TBA</table></div><hr /><h1 id="jdk-17">JDK 1.7</h1><blockquote><p><a href="https://docs.oracle.com/javase/specs/jls/se7/html/index.html">Oracle Java Doc(Java 7)</a></p></blockquote><h2 id="type-interface">Type Interface</h2><blockquote><p>Generic Type Parameter can skip -&gt; “&lt;&gt;”</p></blockquote><div class="language-java highlighter-rouge"><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre><td class="rouge-code"><pre><span class="nc">List</span><span class="o">&lt;</span><span class="nc">Integer</span><span class="o">&gt;</span> <span class="n">list</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">ArrayList</span><span class="o">&lt;&gt;();</span>
+</pre></table></code></div></div><h2 id="string-value-in-switch">String value in Switch</h2><blockquote><p><a href="https://docs.oracle.com/javase/specs/jls/se7/html/jls-14.html#jls-14.11">Oracle Java Doc(Java 7) - The Swich Statement</a></p><p>String value can use Switch Value</p></blockquote><div class="language-java highlighter-rouge"><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+</pre><td class="rouge-code"><pre><span class="nc">String</span> <span class="n">sport</span> <span class="o">=</span> <span class="s">"SOCCER"</span><span class="o">;</span>
+
+<span class="k">switch</span><span class="o">(</span><span class="n">sport</span><span class="o">)</span> <span class="o">{</span>
+	<span class="k">case</span> <span class="s">"SOCCER"</span> <span class="o">:</span> 
+	<span class="k">case</span> <span class="s">"BASKETBALL"</span> <span class="o">:</span> 
+	<span class="k">default</span> <span class="o">:</span> 
+<span class="o">}</span>
+</pre></table></code></div></div><h2 id="the-try-statement">The Try Statement</h2><blockquote><p><a href="https://docs.oracle.com/javase/specs/jls/se7/html/jls-14.html#jls-14.20">Oracle Java Doc(Java 7) - The try Statement</a></p></blockquote><h3 id="catching-multiple-exception-type-in-single-catch-block">Catching Multiple Exception Type in Single Catch Block</h3><blockquote><p>Multi Exception in Single Catch Block<br /> If One Exception is Sub Class relationship of other Class, occur multi-catch error</p></blockquote><div class="language-java highlighter-rouge"><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+</pre><td class="rouge-code"><pre><span class="k">try</span> <span class="o">{</span>
+	<span class="o">...</span>
+<span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="nc">ClassNotFoundExeption</span> <span class="o">|</span> <span class="nc">SQLException</span> <span class="n">ex</span><span class="o">)</span> <span class="o">{</span>
+	<span class="n">ex</span><span class="o">.</span><span class="na">printStackTrace</span><span class="o">();</span>
+<span class="o">}</span>
+</pre></table></code></div></div><h3 id="try-with-resource">try-with-resource</h3><blockquote><p><a href="https://docs.oracle.com/javase/specs/jls/se7/html/jls-14.html#jls-14.20.3">Oracle Java Doc(Java 7) - try-with-resources</a></p><p>If Resource implement AutoCloseable or Closeable, try-with-resource can auto return that resource</p></blockquote><div class="language-java highlighter-rouge"><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+</pre><td class="rouge-code"><pre><span class="k">try</span><span class="o">(</span>
+		<span class="nc">FileInputStream</span> <span class="n">fin</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">FileInputStream</span><span class="o">(</span><span class="s">"info.xml"</span><span class="o">);</span>
+		<span class="nc">BufferedReader</span> <span class="n">br</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">BufferedReader</span><span class="o">(</span><span class="k">new</span> <span class="nc">InputStreamReader</span><span class="o">(</span><span class="n">fin</span><span class="o">));</span>
+	<span class="o">)</span> <span class="o">{</span>
+	<span class="k">if</span><span class="o">(</span><span class="n">br</span><span class="o">.</span><span class="na">ready</span><span class="o">())</span> <span class="o">{</span>
+		<span class="nc">String</span> <span class="n">line1</span> <span class="o">=</span> <span class="n">br</span><span class="o">.</span><span class="na">readLine</span><span class="o">();</span>
+		<span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">line1</span><span class="o">);</span>
+	<span class="o">}</span>
+<span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="nc">FileNotFoundException</span> <span class="n">ex</span><span class="o">)</span> <span class="o">{</span>
+	<span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Info.xml is not found"</span><span class="o">);</span>
+<span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="nc">IOException</span> <span class="n">ex</span><span class="o">)</span> <span class="o">{</span>
+	<span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">printLn</span><span class="o">(</span><span class="s">"Can't read the file"</span><span class="o">)</span>
+<span class="o">}</span>
+</pre></table></code></div></div><h2 id="underscore-in-numeric-literal">Underscore In Numeric literal</h2><blockquote><p>Underscore can be used as display of numeric literal</p></blockquote><div class="language-java highlighter-rouge"><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+</pre><td class="rouge-code"><pre><span class="c1">// right Case</span>
+<span class="kt">int</span> <span class="n">billion</span> <span class="o">=</span> <span class="mi">1_000_000_000</span><span class="o">;</span> <span class="c1">// 10^9</span>
+<span class="kt">long</span> <span class="n">creditCardNumber</span> <span class="o">=</span> <span class="mi">1234_5678_9012_3456L</span><span class="o">;</span> <span class="c1">// 16 digit number</span>
+<span class="kt">long</span> <span class="n">ssn</span> <span class="o">=</span> <span class="mi">111_22_3333L</span><span class="o">;</span>
+<span class="kt">double</span> <span class="n">pi</span> <span class="o">=</span> <span class="mf">3.1415</span><span class="o">.</span><span class="mi">9265</span><span class="o">;</span>
+<span class="kt">float</span> <span class="n">pif</span> <span class="o">=</span> <span class="mf">3.14_15_92_65f</span><span class="o">;</span>
+<span class="c1">// wrong case</span>
+<span class="kt">double</span> <span class="n">pi</span> <span class="o">=</span> <span class="mi">3</span><span class="o">.</span><span class="na">_1415_9265</span><span class="o">;</span> <span class="c1">// Underscore can't after dot</span>
+<span class="kt">long</span> <span class="n">creditCardNumber</span> <span class="o">=</span> <span class="mi">1234_5678_9012_3456</span><span class="n">_L</span><span class="o">;</span> <span class="c1">// Numeric literal can't end of Underscore</span>
+<span class="kt">long</span> <span class="n">ssn</span> <span class="o">=</span> <span class="n">_111_22_3333L</span><span class="o">;</span> <span class="c1">// Numeric literal can't start of Underscore</span>
+</pre></table></code></div></div><h2 id="more-precise-rethrowing-of-exception">More Precise Rethrowing of Exception</h2><blockquote><p>Function can throw Precise Exception</p></blockquote><div class="language-java highlighter-rouge"><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+</pre><td class="rouge-code"><pre><span class="kd">public</span> <span class="kt">void</span> <span class="nf">func</span><span class="o">()</span> <span class="kd">throws</span> <span class="nc">ParseException</span><span class="o">,</span> <span class="nc">IOException</span> <span class="o">{</span>
+	<span class="k">try</span> <span class="o">{</span>
+		<span class="k">new</span> <span class="nf">FileInputStream</span><span class="o">(</span><span class="s">"abc.txt"</span><span class="o">).</span><span class="na">read</span><span class="o">();</span>
+		<span class="k">new</span> <span class="nf">SimpleDateFormat</span><span class="o">(</span><span class="s">"ddMMyyyy"</span><span class="o">).</span><span class="na">parse</span><span class="o">(</span><span class="s">"12-03-2014"</span><span class="o">);</span>
+	<span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="nc">Exeption</span> <span class="n">ex</span><span class="o">)</span> <span class="o">{</span>
+		<span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Caught exception : "</span> <span class="o">+</span> <span class="n">ex</span><span class="o">.</span><span class="na">getMessage</span><span class="o">());</span>
+		<span class="k">throw</span> <span class="n">ex</span><span class="o">;</span>
+	<span class="o">}</span>
+<span class="o">}</span>
+</pre></table></code></div></div><h2 id="update-of-array-list--hash-map">Update of Array List &amp; Hash Map</h2><blockquote><p>Array List initial capacity is modified ten to zero</p></blockquote><h2 id="java-nio-20">JAVA NIO 2.0</h2><hr /><h1 id="jdk-18">JDK 1.8</h1><blockquote><p><a href="https://docs.oracle.com/javase/specs/jls/se8/html/index.html">Oracle Java Doc(Java 8)</a></p></blockquote><h2 id="lambda-expression">Lambda Expression</h2><blockquote><p><a href="https://docs.oracle.com/javase/specs/jls/se8/html/jls-15.html#jls-15.27">Oracle Java Doc(Java 8) - Lambda Expressions</a></p><p>Lambda에서 입력받는 매개변수에 대한 Variable Type을 추론하여 동작한다<br /> 간략한 코드는 Block 및 return을 생략 가능하다<br /> 매개변수가 하나라면 전달되는 Parameter를 감싸는 괄호도 생략 가능하다<br /> 람다식의 평가 결과는 Instance of Fuctional Interface를 만든다</p><blockquote><p>“Evaluation of a lambda expression produces an instance of a functional interface” <br /> Functional Interface를 선언시 Lambda를 활용 할 수 있다.</p></blockquote></blockquote><ul><li><p>Lambda Expression의 기본 형식</p><div class="language-java highlighter-rouge"><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre><td class="rouge-code"><pre><span class="o">(</span><span class="nc">Parameters</span><span class="o">)</span> <span class="o">-&gt;</span> <span class="o">{</span><span class="nc">Function</span> <span class="nc">Body</span><span class="o">}</span>
+</pre></table></code></div></div><li><p>Example</p><div class="language-java highlighter-rouge"><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+</pre><td class="rouge-code"><pre><span class="o">()</span> <span class="o">-&gt;</span> <span class="o">{}</span>                <span class="c1">// No parameters; result is void</span>
+<span class="o">()</span> <span class="o">-&gt;</span> <span class="mi">42</span>                <span class="c1">// No parameters, expression body</span>
+<span class="o">()</span> <span class="o">-&gt;</span> <span class="kc">null</span>              <span class="c1">// No parameters, expression body</span>
+<span class="o">()</span> <span class="o">-&gt;</span> <span class="o">{</span> <span class="k">return</span> <span class="mi">42</span><span class="o">;</span> <span class="o">}</span>    <span class="c1">// No parameters, block body with return</span>
+<span class="o">()</span> <span class="o">-&gt;</span> <span class="o">{</span> <span class="nc">System</span><span class="o">.</span><span class="na">gc</span><span class="o">();</span> <span class="o">}</span>  <span class="c1">// No parameters, void block body</span>
+  
+<span class="o">()</span> <span class="o">-&gt;</span> <span class="o">{</span>                 <span class="c1">// Complex block body with returns</span>
+	<span class="k">if</span> <span class="o">(</span><span class="kc">true</span><span class="o">)</span> <span class="k">return</span> <span class="mi">12</span><span class="o">;</span>
+	<span class="k">else</span> <span class="o">{</span>
+		<span class="kt">int</span> <span class="n">result</span> <span class="o">=</span> <span class="mi">15</span><span class="o">;</span>
+		<span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span>
+		<span class="n">result</span> <span class="o">*=</span> <span class="n">i</span><span class="o">;</span>
+		<span class="k">return</span> <span class="n">result</span><span class="o">;</span>
+	<span class="o">}</span>
+<span class="o">}</span>                          
+  
+<span class="o">(</span><span class="kt">int</span> <span class="n">x</span><span class="o">)</span> <span class="o">-&gt;</span> <span class="n">x</span><span class="o">+</span><span class="mi">1</span>              <span class="c1">// Single declared-type parameter</span>
+<span class="o">(</span><span class="kt">int</span> <span class="n">x</span><span class="o">)</span> <span class="o">-&gt;</span> <span class="o">{</span> <span class="k">return</span> <span class="n">x</span><span class="o">+</span><span class="mi">1</span><span class="o">;</span> <span class="o">}</span>  <span class="c1">// Single declared-type parameter</span>
+<span class="o">(</span><span class="n">x</span><span class="o">)</span> <span class="o">-&gt;</span> <span class="n">x</span><span class="o">+</span><span class="mi">1</span>                  <span class="c1">// Single inferred-type parameter</span>
+<span class="n">x</span> <span class="o">-&gt;</span> <span class="n">x</span><span class="o">+</span><span class="mi">1</span>                    <span class="c1">// Parentheses optional for</span>
+                            <span class="c1">// single inferred-type parameter</span>
+  
+<span class="o">(</span><span class="nc">String</span> <span class="n">s</span><span class="o">)</span> <span class="o">-&gt;</span> <span class="n">s</span><span class="o">.</span><span class="na">length</span><span class="o">()</span>      <span class="c1">// Single declared-type parameter</span>
+<span class="o">(</span><span class="nc">Thread</span> <span class="n">t</span><span class="o">)</span> <span class="o">-&gt;</span> <span class="o">{</span> <span class="n">t</span><span class="o">.</span><span class="na">start</span><span class="o">();</span> <span class="o">}</span>  <span class="c1">// Single declared-type parameter</span>
+<span class="n">s</span> <span class="o">-&gt;</span> <span class="n">s</span><span class="o">.</span><span class="na">length</span><span class="o">()</span>               <span class="c1">// Single inferred-type parameter</span>
+<span class="n">t</span> <span class="o">-&gt;</span> <span class="o">{</span> <span class="n">t</span><span class="o">.</span><span class="na">start</span><span class="o">();</span> <span class="o">}</span>           <span class="c1">// Single inferred-type parameter</span>
+  
+<span class="o">(</span><span class="kt">int</span> <span class="n">x</span><span class="o">,</span> <span class="kt">int</span> <span class="n">y</span><span class="o">)</span> <span class="o">-&gt;</span> <span class="n">x</span><span class="o">+</span><span class="n">y</span>  <span class="c1">// Multiple declared-type parameters</span>
+<span class="o">(</span><span class="n">x</span><span class="o">,</span> <span class="n">y</span><span class="o">)</span> <span class="o">-&gt;</span> <span class="n">x</span><span class="o">+</span><span class="n">y</span>          <span class="c1">// Multiple inferred-type parameters</span>
+      
+<span class="c1">// Illegal Example</span>
+<span class="o">(</span><span class="n">x</span><span class="o">,</span> <span class="kt">int</span> <span class="n">y</span><span class="o">)</span> <span class="o">-&gt;</span> <span class="n">x</span><span class="o">+</span><span class="n">y</span>    <span class="c1">// Illegal: can't mix inferred and declared types</span>
+<span class="o">(</span><span class="n">x</span><span class="o">,</span> <span class="kd">final</span> <span class="n">y</span><span class="o">)</span> <span class="o">-&gt;</span> <span class="n">x</span><span class="o">+</span><span class="n">y</span>  <span class="c1">// Illegal: no modifiers with inferred types</span>
+</pre></table></code></div></div></ul><h2 id="default-method">Default Method</h2><blockquote><p><a href="https://docs.oracle.com/javase/specs/jls/se8/html/jls-13.html#jls-13.5.6">Oracle Java Doc(Java 8) - Default Method</a></p><p>Interface를 선언할때 구현될 Method의 기본 동작을 함께 선언 가능하다<br /> 다수의 Interface를 implement시 동일한 이름과 같은 순서의 Parameter Type을 받는 Default Method가 존재하는 경우 Error가 발생한다.</p></blockquote><ul><li><p>Example</p><div class="language-java highlighter-rouge"><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+</pre><td class="rouge-code"><pre><span class="kd">interface</span> <span class="nc">Painter</span> <span class="o">{</span>
+	<span class="k">default</span> <span class="kt">void</span> <span class="nf">draw</span><span class="o">()</span> <span class="o">{</span>
+		<span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Painter"</span><span class="o">);</span>
+	<span class="o">}</span>
+<span class="o">}</span>
+  
+<span class="kd">interface</span> <span class="nc">Cowboy</span> <span class="o">{}</span>
+  
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">CowboyArtist</span> <span class="kd">implements</span> <span class="nc">Cowboy</span><span class="o">,</span> <span class="nc">Painter</span> <span class="o">{</span>
+	<span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">...</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+		<span class="k">new</span> <span class="nf">CowboyArtist</span><span class="o">().</span><span class="na">draw</span><span class="o">();</span> <span class="c1">//Print "Painter"</span>
+	<span class="o">}</span>
+<span class="o">}</span>
+</pre></table></code></div></div><li><p>Illegal Example</p><div class="language-java highlighter-rouge"><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+</pre><td class="rouge-code"><pre><span class="kd">interface</span> <span class="nc">Painter</span> <span class="o">{</span>
+	<span class="k">default</span> <span class="kt">void</span> <span class="nf">draw</span><span class="o">()</span> <span class="o">{</span>
+		<span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Painter"</span><span class="o">);</span>
+	<span class="o">}</span>
+<span class="o">}</span>
+  
+<span class="kd">interface</span> <span class="nc">Cowboy</span> <span class="o">{</span>
+	<span class="k">default</span> <span class="kt">void</span> <span class="nf">draw</span><span class="o">()</span> <span class="o">{</span>
+		<span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Cowboy"</span><span class="o">);</span>
+	<span class="o">}</span>
+<span class="o">}</span>
+  
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">CowboyArtist</span> <span class="kd">implements</span> <span class="nc">Cowboy</span><span class="o">,</span> <span class="nc">Painter</span> <span class="o">{</span> <span class="c1">// 같은 default Method가 존재하여 에러 발생</span>
+	<span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">...</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+		<span class="k">new</span> <span class="nf">CowboyArtist</span><span class="o">().</span><span class="na">draw</span><span class="o">();</span>
+	<span class="o">}</span>
+<span class="o">}</span>
+</pre></table></code></div></div></ul><h2 id="functional-interface">Functional Interface</h2><blockquote><p><a href="https://docs.oracle.com/javase/specs/jls/se8/html/jls-9.html#jls-9.8">Oracle Java Doc(Java 8) - Functional Interfaces</a><br /> <a href="https://arasia.github.io/SimpleBlog/posts/Java-Functional-Interface/">Functional Interface</a></p><p>Object Class의 Method를 제외하고 단 하나의 Abstract method만을 가진 Interface<br /> 따라서 Functional Interface는 단 하나의 기능을 나타낸다</p></blockquote><ul><li><p>Fucntional Interface Annotation</p><blockquote><p>@FunctionalInterface를 사용하여 Compiler가 해당 Interface는 Functional Interface임을 명시하기 위해 사용</p></blockquote><li><p>Example</p><div class="language-java highlighter-rouge"><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+</pre><td class="rouge-code"><pre><span class="nd">@FunctionalInterface</span>
+<span class="kd">interface</span> <span class="nc">ExampleOfFunctionalInterface</span> <span class="o">{</span>
+	<span class="kd">public</span> <span class="kt">int</span> <span class="nf">doSomething</span><span class="o">(</span><span class="kt">int</span> <span class="n">x</span><span class="o">,</span> <span class="kt">int</span> <span class="n">y</span><span class="o">);</span>
+<span class="o">}</span>
+  
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Test</span> <span class="o">{</span>
+	<span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+		<span class="c1">// Lambda를 활용한 Function 정의</span>
+		<span class="nc">ExampleOfFunctionalInterface</span> <span class="n">implemented</span> <span class="o">=</span> <span class="o">(</span><span class="n">x</span><span class="o">,</span> <span class="n">y</span><span class="o">)</span> <span class="o">-&gt;</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span><span class="o">;</span>
+  
+		<span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">implemented</span><span class="o">.</span><span class="na">doSomething</span><span class="o">(</span><span class="mi">1</span><span class="o">,</span> <span class="mi">2</span><span class="o">));</span> <span class="c1">// result 3</span>
+		<span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">implemented</span><span class="o">.</span><span class="na">doSomething</span><span class="o">(</span><span class="mi">10</span><span class="o">,</span> <span class="mi">20</span><span class="o">));</span> <span class="c1">// result 30</span>
+	<span class="o">}</span>
+<span class="o">}</span>
+</pre></table></code></div></div></ul><h2 id="method-reference">Method Reference</h2><blockquote><p><a href="https://docs.oracle.com/javase/specs/jls/se8/html/jls-15.html#jls-15.13">Oracle Java Doc(Java 8) - Method Referance Expressions</a></p><p>Lambda Expression이 단 하나의 Method만 호출하는 경우 Method Reference로 전환 가능<br /> 전환시 불필요한 Parameter를 제외하고 (Class | Object)::Method 형태로 표현됨</p></blockquote><h3 id="classmethod">Class::Method</h3><div class="language-java highlighter-rouge"><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+</pre><td class="rouge-code"><pre><span class="kd">class</span> <span class="nc">Printer</span> <span class="o">{</span>
+	<span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">print</span><span class="o">(</span><span class="nc">String</span> <span class="n">str</span><span class="o">){</span>
+		<span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">str</span><span class="o">);</span>
+	<span class="o">}</span>
+<span class="o">}</span>
+
+<span class="c1">// Lambda - Functional Interface</span>
+<span class="nc">Consumer</span> <span class="o">&lt;</span><span class="nc">Integer</span><span class="o">&gt;</span> <span class="n">consumerLambda</span> <span class="o">=</span> <span class="o">(</span><span class="n">str</span><span class="o">)</span> <span class="o">-&gt;</span> <span class="nc">Printer</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="n">str</span><span class="o">);</span>
+<span class="c1">// Method Reference - Functional Interface</span>
+<span class="nc">Consumer</span> <span class="o">&lt;</span><span class="nc">Integer</span><span class="o">&gt;</span> <span class="n">consumerMethodReference</span> <span class="o">=</span> <span class="nl">Printer:</span><span class="o">:</span><span class="n">print</span><span class="o">;</span>
+</pre></table></code></div></div><h3 id="classobjectmethod">Class.Object::Method</h3><div class="language-java highlighter-rouge"><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+</pre><td class="rouge-code"><pre><span class="kd">class</span> <span class="nc">Printer</span> <span class="o">{</span>
+	<span class="kd">public</span> <span class="kt">void</span> <span class="nf">print</span><span class="o">(</span><span class="nc">String</span> <span class="n">str</span><span class="o">){</span>
+		<span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">str</span><span class="o">);</span>
+	<span class="o">}</span>
+<span class="o">}</span>
+
+<span class="kd">class</span> <span class="nc">Machine</span> <span class="o">{</span>
+	<span class="kd">public</span> <span class="kd">static</span> <span class="kd">final</span> <span class="nc">Printer</span> <span class="n">printer</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Printer</span><span class="o">();</span>
+<span class="o">}</span>
+
+<span class="c1">// Lambda - Functional Interface</span>
+<span class="nc">Consumer</span> <span class="o">&lt;</span><span class="nc">Integer</span><span class="o">&gt;</span> <span class="n">consumerLambda</span> <span class="o">=</span> <span class="o">(</span><span class="n">str</span><span class="o">)</span> <span class="o">-&gt;</span> <span class="nc">Machine</span><span class="o">.</span><span class="na">printer</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="n">str</span><span class="o">);</span>
+<span class="c1">// Method Reference - Functional Interface</span>
+<span class="nc">Consumer</span> <span class="o">&lt;</span><span class="nc">Integer</span><span class="o">&gt;</span> <span class="n">consumerMethodReference</span> <span class="o">=</span> <span class="nc">Machine</span><span class="o">.</span><span class="na">printer</span><span class="o">::</span><span class="n">print</span><span class="o">;</span>
+</pre></table></code></div></div><h3 id="classconstructor">Class::Constructor</h3><div class="language-java highlighter-rouge"><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+</pre><td class="rouge-code"><pre><span class="kd">class</span> <span class="nc">Student</span> <span class="o">{</span>
+	<span class="kd">private</span> <span class="nc">String</span> <span class="n">name</span><span class="o">;</span>
+	<span class="kd">private</span> <span class="nc">Integer</span> <span class="n">age</span><span class="o">;</span>
+
+	<span class="nc">Student</span><span class="o">()</span> <span class="o">{}</span>
+
+	<span class="nc">Student</span><span class="o">(</span><span class="nc">String</span> <span class="n">name</span><span class="o">)</span> <span class="o">{</span>
+		<span class="k">this</span><span class="o">.</span><span class="na">name</span> <span class="o">=</span> <span class="n">name</span><span class="o">;</span>
+	<span class="o">}</span>
+
+	<span class="nc">Student</span><span class="o">(</span><span class="nc">String</span> <span class="n">name</span><span class="o">,</span> <span class="nc">Integer</span> <span class="n">age</span><span class="o">)</span> <span class="o">{</span>
+		<span class="k">this</span><span class="o">.</span><span class="na">name</span> <span class="o">=</span> <span class="n">name</span><span class="o">;</span>
+		<span class="k">this</span><span class="o">.</span><span class="na">age</span> <span class="o">=</span> <span class="n">age</span><span class="o">;</span>
+	<span class="o">}</span>
+<span class="o">}</span>
+
+<span class="c1">//Reference</span>
+<span class="nc">Student</span> <span class="n">student1</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Student</span><span class="o">();</span>
+<span class="nc">Student</span> <span class="n">student2</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Student</span><span class="o">(</span><span class="s">"Peter"</span><span class="o">);</span>
+<span class="nc">Student</span> <span class="n">student3</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Student</span><span class="o">(</span><span class="s">"Sam"</span><span class="o">,</span> <span class="mi">20</span><span class="o">);</span>
+
+<span class="c1">//Lambda - Functional Interface</span>
+<span class="nc">Supplier</span><span class="o">&lt;</span><span class="nc">Student</span><span class="o">&gt;</span> <span class="n">supplier</span> <span class="o">=</span> <span class="o">()</span> <span class="o">-&gt;</span> <span class="k">new</span> <span class="nc">Student</span><span class="o">();</span>
+<span class="nc">Function</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">,</span> <span class="nc">Student</span><span class="o">&gt;</span> <span class="n">function</span> <span class="o">=</span> <span class="o">(</span><span class="n">name</span><span class="o">)</span> <span class="o">-&gt;</span> <span class="k">new</span> <span class="nc">Student</span><span class="o">(</span><span class="n">name</span><span class="o">);</span>
+<span class="nc">BiFunction</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">,</span> <span class="nc">Integer</span><span class="o">,</span> <span class="nc">Student</span><span class="o">&gt;</span> <span class="n">biFunction</span> <span class="o">=</span> <span class="o">(</span><span class="n">name</span><span class="o">,</span> <span class="n">age</span><span class="o">)</span> <span class="o">-&gt;</span> <span class="k">new</span> <span class="nc">Student</span><span class="o">(</span><span class="n">name</span><span class="o">,</span> <span class="n">age</span><span class="o">);</span>
+
+<span class="c1">//Method Reference - Functional Interface</span>
+<span class="nc">Supplier</span><span class="o">&lt;</span><span class="nc">Student</span><span class="o">&gt;</span> <span class="n">supplier</span> <span class="o">=</span> <span class="nl">Student:</span><span class="o">:</span><span class="k">new</span><span class="o">;</span>
+<span class="nc">Function</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">,</span> <span class="nc">Student</span><span class="o">&gt;</span> <span class="n">function</span> <span class="o">=</span> <span class="nl">Student:</span><span class="o">:</span><span class="k">new</span><span class="o">;</span>
+<span class="nc">BiFunction</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">,</span> <span class="nc">Integer</span><span class="o">,</span> <span class="nc">Student</span><span class="o">&gt;</span> <span class="n">biFunction</span> <span class="o">=</span> <span class="nl">Student:</span><span class="o">:</span><span class="k">new</span><span class="o">;</span>
+</pre></table></code></div></div><h2 id="stream-api">Stream API</h2><blockquote><p>외부 반복을 통해 작업하는 컬렉션과 다르게 내부 반복을 통해 작업을 수행<br /> 스트림은 재사용이 불가능함<br /> 스트림은 원본 데이터를 변경하지 않음<br /> Filter-Map 기반의 API를 사용하여 Lazy 연산을 통해 성능을 최적화<br /> parallelStream()을 통하여 간단한 병렬처리를 지원</p></blockquote><h3 id="스트림의-기본동작">스트림의 기본동작</h3><ol><li>스트림 생성<li>스트림 중계 연산<li>스트림 최종 연산</ol><h3 id="example">Example</h3><div class="language-java highlighter-rouge"><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+</pre><td class="rouge-code"><pre><span class="nc">Integer</span><span class="o">[]</span> <span class="n">arr</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Integer</span><span class="o">[]</span> <span class="o">{</span><span class="mi">1</span><span class="o">,</span> <span class="mi">2</span><span class="o">,</span> <span class="mi">3</span><span class="o">,</span> <span class="mi">4</span><span class="o">,</span> <span class="mi">5</span><span class="o">};</span>
+<span class="nc">Stream</span><span class="o">&lt;</span><span class="nc">Integer</span><span class="o">&gt;</span> <span class="n">stream</span> <span class="o">=</span> <span class="nc">Arrays</span><span class="o">.</span><span class="na">stream</span><span class="o">(</span><span class="n">arr</span><span class="o">);</span>
+
+<span class="n">stream</span><span class="o">.</span><span class="na">map</span><span class="o">(</span><span class="n">i</span> <span class="o">-&gt;</span> <span class="n">i</span> <span class="o">*</span> <span class="mi">2</span><span class="o">)</span> <span class="c1">// 각 인자 * 2 (중계 연산)</span>
+	<span class="o">.</span><span class="na">forEach</span><span class="o">(</span><span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">::</span><span class="n">println</span><span class="o">);</span> <span class="c1">// print (최종 연산) :  2 4 6 8 10</span>
+
+<span class="n">stream</span><span class="o">.</span><span class="na">forEach</span><span class="o">(</span><span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">::</span><span class="n">println</span><span class="o">);</span> <span class="c1">// Runtime Error : 스트림 재사용 불가 </span>
+</pre></table></code></div></div><h2 id="optional">Optional</h2><blockquote><p>변수가 Null인지 해당 Object를 가지고있는지 판단할 수 없을 때 Null 처리를 유연하게 대처 가능</p></blockquote><div class="language-java highlighter-rouge"><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+</pre><td class="rouge-code"><pre><span class="nc">Integer</span> <span class="n">integer</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
+<span class="nc">Optional</span><span class="o">.</span><span class="na">ofNullable</span><span class="o">(</span><span class="n">integer</span><span class="o">).</span><span class="na">ifPresent</span><span class="o">(</span><span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">::</span><span class="n">println</span><span class="o">);</span> <span class="c1">// null이므로 println이 Skip</span>
+
+<span class="n">integer</span> <span class="o">=</span> <span class="mi">10</span><span class="o">;</span>
+<span class="nc">Optional</span><span class="o">.</span><span class="na">ofNullable</span><span class="o">(</span><span class="n">integer</span><span class="o">).</span><span class="na">ifPresent</span><span class="o">(</span><span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">::</span><span class="n">println</span><span class="o">);</span> <span class="c1">// print : 10</span>
+</pre></table></code></div></div><h2 id="javatime-package">java.time Package</h2><blockquote><p>Less than Java 7, almost developer uses Joda-Time<br /> In Java 8, java.time package is included</p></blockquote><div class="language-java highlighter-rouge"><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+</pre><td class="rouge-code"><pre><span class="nc">LocalDateTime</span> <span class="n">localDateTime</span> <span class="o">=</span> <span class="nc">LocalDateTime</span><span class="o">.</span><span class="na">now</span><span class="o">();</span>
+
+<span class="c1">// print : 2021-03-22T22:38:20.66</span>
+<span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">localDateTime</span><span class="o">.</span><span class="na">format</span><span class="o">(</span><span class="nc">DateTimeFormatter</span><span class="o">.</span><span class="na">ISO_LOCAL_DATE_TIME</span><span class="o">));</span> 
+<span class="c1">// print : 2021-03-22 10:38:20.660</span>
+<span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">localDateTime</span><span class="o">.</span><span class="na">format</span><span class="o">(</span><span class="nc">DateTimeFormatter</span><span class="o">.</span><span class="na">ofPattern</span><span class="o">(</span><span class="s">"yyyy-MM-dd hh:mm:ss.SSS"</span><span class="o">)));</span> 
+</pre></table></code></div></div></div><div class="post-tail-wrapper text-muted"><div class="post-meta mb-3"> <i class="far fa-folder-open fa-fw mr-1"></i> <a href='/SimpleBlog/categories/language/'>Language</a>, <a href='/SimpleBlog/categories/java/'>Java</a></div><div class="post-tags"> <i class="fa fa-tags fa-fw mr-1"></i> <a href="/SimpleBlog/tags/java/" class="post-tag no-text-decoration" >java</a></div><div class="post-tail-bottom d-flex justify-content-between align-items-center mt-3 pt-5 pb-2"><div class="license-wrapper"> This post is licensed under <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a> by the author.</div><div class="share-wrapper"> <span class="share-label text-muted mr-1">Share</span> <span class="share-icons"> <a href="https://twitter.com/intent/tweet?text=자바 버전별 변경사항 - Arasia's Blog&url=https://arasia.github.io/SimpleBlog/posts/Changes-by-Java-Version/" data-toggle="tooltip" data-placement="top" title="Twitter" target="_blank" rel="noopener" aria-label="Twitter"> <i class="fa-fw fab fa-twitter"></i> </a> <a href="https://www.facebook.com/sharer/sharer.php?title=자바 버전별 변경사항 - Arasia's Blog&u=https://arasia.github.io/SimpleBlog/posts/Changes-by-Java-Version/" data-toggle="tooltip" data-placement="top" title="Facebook" target="_blank" rel="noopener" aria-label="Facebook"> <i class="fa-fw fab fa-facebook-square"></i> </a> <a href="https://telegram.me/share?text=자바 버전별 변경사항 - Arasia's Blog&url=https://arasia.github.io/SimpleBlog/posts/Changes-by-Java-Version/" data-toggle="tooltip" data-placement="top" title="Telegram" target="_blank" rel="noopener" aria-label="Telegram"> <i class="fa-fw fab fa-telegram"></i> </a> <i class="fa-fw fas fa-link small" onclick="copyLink()" data-toggle="tooltip" data-placement="top" title="Copy link"></i> </span></div></div></div></div></div><div id="panel-wrapper" class="col-xl-3 pl-2 text-muted topbar-down"><div class="access"><div id="access-lastmod" class="post"> <span>Recent Update</span><ul class="post-content pl-0 pb-1 ml-1 mt-2"><li><a href="/SimpleBlog/posts/Java-Stream-API/">Java Stream API</a><li><a href="/SimpleBlog/posts/Java-Collectors/">Java Collectors</a><li><a href="/SimpleBlog/posts/Java-Optional/">Java Optional</a><li><a href="/SimpleBlog/posts/Java-Functional-Interface/">Java Functional Interface</a><li><a href="/SimpleBlog/posts/Changes-by-Java-Version/">자바 버전별 변경사항</a></ul></div><div id="access-tags"> <span>Trending Tags</span><div class="d-flex flex-wrap mt-3 mb-1 mr-3"> <a class="post-tag" href="/SimpleBlog/tags/java/">java</a></div></div></div><script src="https://cdn.jsdelivr.net/gh/afeld/bootstrap-toc@1.0.1/dist/bootstrap-toc.min.js"></script><div id="toc-wrapper" class="pl-0 pr-4 mb-5"> <span class="pl-3 pt-2 mb-2">Contents</span><nav id="toc" data-toggle="toc"></nav></div></div></div><div class="row"><div class="col-12 col-lg-11 col-xl-8"><div id="post-extend-wrapper" class="pl-1 pr-1 pl-sm-2 pr-sm-2 pl-md-4 pr-md-4"><div id="related-posts" class="mt-5 mb-2 mb-sm-4"><h3 class="pt-2 mt-1 mb-4 ml-1" data-toc-skip>Further Reading</h3><div class="card-deck mb-4"><div class="card"> <a href="/SimpleBlog/posts/Java-Functional-Interface/"><div class="card-body"> <span class="timeago small" > Mar 23 <i class="unloaded">2021-03-23T01:21:23+09:00</i> </span><h3 class="pt-0 mt-1 mb-3" data-toc-skip>Java Functional Interface</h3><div class="text-muted small"><p> Functional Interface Oracle Java Doc(Java 8) - Functional Interfaces﻿ Object Class의 Method를 제외하고 단 하나의 Abstract method만을 가진 Interface 따라서 Functional Interface는 단 하나의 기능을 나타낸다 Fucntional In...</p></div></div></a></div><div class="card"> <a href="/SimpleBlog/posts/Java-Stream-API/"><div class="card-body"> <span class="timeago small" > Mar 25 <i class="unloaded">2021-03-25T02:16:34+09:00</i> </span><h3 class="pt-0 mt-1 mb-3" data-toc-skip>Java Stream API</h3><div class="text-muted small"><p> Stream API 외부 반복을 통해 작업하는 컬렉션과 다르게 내부 반복을 통해 작업을 수행 Stream은 재사용이 불가능함 Stream은 원본 데이터를 변경하지 않음 Filter-Map 기반의 API를 사용하여 Lazy 연산을 통해 성능을 최적화 parallelStream()을 통하여 간단한 병렬처리를 지원 Stream의 기본동작 ...</p></div></div></a></div><div class="card"> <a href="/SimpleBlog/posts/Java-Collectors/"><div class="card-body"> <span class="timeago small" > Mar 28 <i class="unloaded">2021-03-28T23:16:34+09:00</i> </span><h3 class="pt-0 mt-1 mb-3" data-toc-skip>Java Collectors</h3><div class="text-muted small"><p> Collectors Stream의 종료 연산 중 collect를 할 때 사용된다 다양한 방법으로 사용자가 원하는 결과물을 만들어 낼 수 있다 Collection 결과물 반환 이미 지정된 형태의 결과물로 반환한다 toCollection Stream의 Element를 collectionFactory...</p></div></div></a></div></div></div><div class="post-navigation d-flex justify-content-between"> <span class="btn btn-outline-primary disabled" prompt="Older"><p>-</p></span> <a href="/SimpleBlog/posts/Java-Functional-Interface/" class="btn btn-outline-primary" prompt="Newer"><p>Java Functional Interface</p></a></div></div></div></div><footer class="d-flex w-100 justify-content-center"><div class="d-flex justify-content-between align-items-center"><div class="footer-left"><p class="mb-0"> © 2021 <a href="https://github.com/Arasia">ChoungSun Kim</a>. <span data-toggle="tooltip" data-placement="top" title="Except where otherwise noted, the blog posts on this site are licensed under the Creative Commons Attribution 4.0 International (CC BY 4.0) License by the author."> Some rights reserved. </span></p></div><div class="footer-right"><p class="mb-0"> Powered by <a href="https://jekyllrb.com" target="_blank" rel="noopener">Jekyll</a> with <a href="https://github.com/cotes2020/jekyll-theme-chirpy" target="_blank" rel="noopener">Chirpy</a> theme.</p></div></div></footer></div><div id="search-result-wrapper" class="d-flex justify-content-center unloaded"><div class="col-12 col-sm-11 post-content"><div id="search-hints"><h4 class="text-muted mb-4">Trending Tags</h4><a class="post-tag" href="/SimpleBlog/tags/java/">java</a></div><div id="search-results" class="d-flex flex-wrap justify-content-center text-muted mt-3"></div></div></div></div><div id="mask"></div><a id="back-to-top" href="#" aria-label="back-to-top" class="btn btn-lg btn-box-shadow" role="button"> <i class="fas fa-angle-up"></i> </a> <script src="https://cdn.jsdelivr.net/npm/simple-jekyll-search@1.7.3/dest/simple-jekyll-search.min.js"></script> <script> SimpleJekyllSearch({ searchInput: document.getElementById('search-input'), resultsContainer: document.getElementById('search-results'), json: '/SimpleBlog/assets/js/data/search.json', searchResultTemplate: '<div class="pl-1 pr-1 pl-sm-2 pr-sm-2 pl-lg-4 pr-lg-4 pl-xl-0 pr-xl-0"> <a href="https://arasia.github.io{url}">{title}</a><div class="post-meta d-flex flex-column flex-sm-row text-muted mt-1 mb-1"> {categories} {tags}</div><p>{snippet}</p></div>', noResultsText: '<p class="mt-5">Oops! No result founds.</p>', templateMiddleware: function(prop, value, template) { if (prop === 'categories') { if (value === '') { return `${value}`; } else { return `<div class="mr-sm-4"><i class="far fa-folder fa-fw"></i>${value}</div>`; } } if (prop === 'tags') { if (value === '') { return `${value}`; } else { return `<div><i class="fa fa-tag fa-fw"></i>${value}</div>`; } } } }); </script>
