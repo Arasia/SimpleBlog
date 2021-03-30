@@ -396,218 +396,218 @@ public interface Stream<T> extends BaseStream<T, Stream<T>> {
 
 - Stream.forEach
 
-  > Stream의 각 Element에 대한 action을 취하고 종료한다
+	> Stream의 각 Element에 대한 action을 취하고 종료한다
 
-  | Function Name | Parameter Type | Return Type | 비고 |
-  | ------------- | -------------- | ----------- | ---- |
-  | forEach | Consumer<? super T> action | void |      |
+	| Function Name | Parameter Type | Return Type | 비고 |
+	| ------------- | -------------- | ----------- | ---- |
+	| forEach | Consumer<? super T> action | void |      |
 
-  ```java
-  // [1, 2, 3]
-  Stream<Integer> stream = Stream.iterate(1, n -> n+1).limit(3);
-  
-  stream.forEach(System.out::println); // print : 1 2 3
-  ```
+	```java
+	// [1, 2, 3]
+	Stream<Integer> stream = Stream.iterate(1, n -> n+1).limit(3);
+	
+	stream.forEach(System.out::println); // print : 1 2 3
+	```
 
 - Stream.toArray
 
-  > Stream을 Array로 반환하고 종료한다
+	> Stream을 Array로 반환하고 종료한다
 
-  | Function Name | Parameter Type | Return Type | 비고 |
-  | ------------- | -------------- | ----------- | ---- |
-  | toArray | void | Object[] |      |
-  | toArray | IntFunction<A[]> generator | A[] | |
+	| Function Name | Parameter Type | Return Type | 비고 |
+	| ------------- | -------------- | ----------- | ---- |
+	| toArray | void | Object[] |      |
+	| toArray | IntFunction<A[]> generator | A[] | |
 
-  ```java
-  // [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
-  Stream<Integer> stream = Stream.iterate(1, n -> n+1).limit(10);
-  Integer[] integers = (Integer[]) stream.toArray();
-  
-  // [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
-  Stream<Integer> stream = Stream.iterate(1, n -> n+1).limit(10);
-  Integer[] integers = stream.toArray(Integer[]::new);
-  ```
+	```java
+	// [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+	Stream<Integer> stream = Stream.iterate(1, n -> n+1).limit(10);
+	Integer[] integers = (Integer[]) stream.toArray();
+	
+	// [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+	Stream<Integer> stream = Stream.iterate(1, n -> n+1).limit(10);
+	Integer[] integers = stream.toArray(Integer[]::new);
+	```
 
 - Stream.reduce
 
-  > Stream의 각 Element들에 대한 커스텀 집계를 하여 결과를 반환하고 종료한다  
-  > 집계의 초기값을 지정할 수 있다
+	> Stream의 각 Element들에 대한 커스텀 집계를 하여 결과를 반환하고 종료한다  
+	> 집계의 초기값을 지정할 수 있다
 
-  | Function Name | Parameter | Return Type | 비고 |
-  | ------------- | -------------- | ----------- | ---- |
-  | reduce | BinaryOperator\<T\> accumulator | Optional\<T\> |      |
-  | reduce | T identity, BinaryOperator\<T\> accumulator | T | |
-  | reduce | U identity, BiFunction<U, ? super T, U> accumulator, BinaryOperator\<U\> combiner | U | 병렬로 동작시 필요 |
+	| Function Name | Parameter | Return Type | 비고 |
+	| ------------- | -------------- | ----------- | ---- |
+	| reduce | BinaryOperator\<T\> accumulator | Optional\<T\> |      |
+	| reduce | T identity, BinaryOperator\<T\> accumulator | T | |
+	| reduce | U identity, BiFunction<U, ? super T, U> accumulator, BinaryOperator\<U\> combiner | U | 병렬로 동작시 필요 |
 
-  ```java
-  // [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
-  Stream<Integer> stream = Stream.iterate(1, n -> n+1).limit(10);
-  // Optional[55]
-  Optional<Integer> integer = stream.reduce(Integer::sum);
-  
-  // [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
-  Stream<Integer> stream = Stream.iterate(1, n -> n+1).limit(10);
-  // Optional[65]
-  Optional<Integer> integer = Optional.ofNullable(stream.reduce(10, Integer::sum));
-  
-  // [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
-  Stream<Integer> stream = Stream.iterate(1, n -> n+1).limit(10);
-  // Optional[155]
-  Optional<Integer> integer = Optional.ofNullable(stream.parallel().reduce(10, Integer::sum, Integer::sum));
-  ```
+	```java
+	// [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+	Stream<Integer> stream = Stream.iterate(1, n -> n+1).limit(10);
+	// Optional[55]
+	Optional<Integer> integer = stream.reduce(Integer::sum);
+	
+	// [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+	Stream<Integer> stream = Stream.iterate(1, n -> n+1).limit(10);
+	// Optional[65]
+	Optional<Integer> integer = Optional.ofNullable(stream.reduce(10, Integer::sum));
+	
+	// [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+	Stream<Integer> stream = Stream.iterate(1, n -> n+1).limit(10);
+	// Optional[155]
+	Optional<Integer> integer = Optional.ofNullable(stream.parallel().reduce(10, Integer::sum, Integer::sum));
+	```
 
 - Stream.collect
 
-  > Stream의 Element들을 R타입의 형식으로 모아 반환한다
+	> Stream의 Element들을 R타입의 형식으로 모아 반환한다
 
-  | Function Name | Parameter | Return Type | 비고 |
-  | ------------- | -------------- | ----------- | ---- |
-  | collect | Supplier\<R\> supplier, BiConsumer<R, ? super T> accumulator, BiConsumer<R, R> combiner | R |      |
-  | collect | Collector<? super T, A, R> collector | R | |
+	| Function Name | Parameter | Return Type | 비고 |
+	| ------------- | -------------- | ----------- | ---- |
+	| collect | Supplier\<R\> supplier, BiConsumer<R, ? super T> accumulator, BiConsumer<R, R> combiner | R |      |
+	| collect | Collector<? super T, A, R> collector | R | |
 
-  ```java
-  // [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
-  Stream<Integer> stream = Stream.iterate(1, n -> n+1).limit(10);
-  // [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
-  List<Integer> list = stream.collect(ArrayList::new, ArrayList::add, ArrayList::addAll);
-  
-  // [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
-  Stream<Integer> stream = Stream.iterate(1, n -> n+1).limit(10);
-  // [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
-  List<Integer> list = stream.collect(Collectors.toList());
-  ```
+	```java
+	// [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+	Stream<Integer> stream = Stream.iterate(1, n -> n+1).limit(10);
+	// [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+	List<Integer> list = stream.collect(ArrayList::new, ArrayList::add, ArrayList::addAll);
+	
+	// [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+	Stream<Integer> stream = Stream.iterate(1, n -> n+1).limit(10);
+	// [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+	List<Integer> list = stream.collect(Collectors.toList());
+	```
 
 - Stream.min
 
-  > Stream의 Element들을 comparator로 비교하여 최소값을 반환한다  
-  > Stream이 비어있다면 Optional.empty을 반환한다
+	> Stream의 Element들을 comparator로 비교하여 최소값을 반환한다  
+	> Stream이 비어있다면 Optional.empty을 반환한다
 
-  | Function Name | Parameter | Return Type | 비고 |
-  | ------------- | -------------- | ----------- | ---- |
-  | min | Comparator<? super T> comparator | Optional\<T\> |      |
+	| Function Name | Parameter | Return Type | 비고 |
+	| ------------- | -------------- | ----------- | ---- |
+	| min | Comparator<? super T> comparator | Optional\<T\> |      |
 
-  ```java
-  // [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
-  Stream<Integer> stream = Stream.iterate(1, n -> n+1).limit(10);
-  // Optional[1]
-  Optional<Integer> integer = stream.min(Integer::compareTo);
-  ```
+	```java
+	// [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+	Stream<Integer> stream = Stream.iterate(1, n -> n+1).limit(10);
+	// Optional[1]
+	Optional<Integer> integer = stream.min(Integer::compareTo);
+	```
 
 - Stream.max
 
-  > Stream의 Element들을 comparator로 비교하여 최대값을 반환한다  
-  > Stream이 비어있다면 Optional.empty을 반환한다
+	> Stream의 Element들을 comparator로 비교하여 최대값을 반환한다  
+	> Stream이 비어있다면 Optional.empty을 반환한다
 
-  | Function Name | Parameter | Return Type | 비고 |
-  | ------------- | -------------- | ----------- | ---- |
-  | max | Comparator<? super T> comparator | Optional\<T\> |      |
+	| Function Name | Parameter | Return Type | 비고 |
+	| ------------- | -------------- | ----------- | ---- |
+	| max | Comparator<? super T> comparator | Optional\<T\> |      |
 
-  ```java
-  // [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
-  Stream<Integer> stream = Stream.iterate(1, n -> n+1).limit(10);
-  // Optional[10]
-  Optional<Integer> integer = stream.max(Integer::compareTo);
-  ```
+	```java
+	// [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+	Stream<Integer> stream = Stream.iterate(1, n -> n+1).limit(10);
+	// Optional[10]
+	Optional<Integer> integer = stream.max(Integer::compareTo);
+	```
 
 - Stream.count
 
-  > Stream의 Element의 갯수를 반환한다.
+	> Stream의 Element의 갯수를 반환한다.
 
-  | Function Name | Parameter | Return Type | 비고 |
-  | ------------- | -------------- | ----------- | ---- |
-  | count | void | long |      |
+	| Function Name | Parameter | Return Type | 비고 |
+	| ------------- | -------------- | ----------- | ---- |
+	| count | void | long |      |
 
-  ```java
-  // [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
-  Stream<Integer> stream = Stream.iterate(1, n -> n+1).limit(10);
-  // 10
-  long l = stream.count();
-  ```
+	```java
+	// [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+	Stream<Integer> stream = Stream.iterate(1, n -> n+1).limit(10);
+	// 10
+	long l = stream.count();
+	```
 
 - Stream.anyMatch
 
-  > Stream의 Element중 predicate의 연산 결과가 True인 Element가 1개라도 존재하면 True를 반환한다.
+	> Stream의 Element중 predicate의 연산 결과가 True인 Element가 1개라도 존재하면 True를 반환한다.
 
-  | Function Name | Parameter | Return Type | 비고 |
-  | ------------- | -------------- | ----------- | ---- |
-  | anyMatch | Predicate<? super T> predicate | boolean |      |
+	| Function Name | Parameter | Return Type | 비고 |
+	| ------------- | -------------- | ----------- | ---- |
+	| anyMatch | Predicate<? super T> predicate | boolean |      |
 
-  ```java
-  // [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
-  Stream<Integer> stream = Stream.iterate(1, n -> n+1).limit(10);
-  // true
-  boolean result = stream.anyMatch(integer -> integer > 5);
-  
-  // [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
-  Stream<Integer> stream = Stream.iterate(1, n -> n+1).limit(10);
-  // false
-  boolean result = stream.anyMatch(integer -> integer > 10);
-  ```
+	```java
+	// [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+	Stream<Integer> stream = Stream.iterate(1, n -> n+1).limit(10);
+	// true
+	boolean result = stream.anyMatch(integer -> integer > 5);
+	
+	// [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+	Stream<Integer> stream = Stream.iterate(1, n -> n+1).limit(10);
+	// false
+	boolean result = stream.anyMatch(integer -> integer > 10);
+	```
 
 - Stream.allMatch
 
-  > Stream의 모든 Element의 predicate의 연산 결과가 True이면 True를 반환한다.
+	> Stream의 모든 Element의 predicate의 연산 결과가 True이면 True를 반환한다.
 
-  | Function Name | Parameter | Return Type | 비고 |
-  | ------------- | -------------- | ----------- | ---- |
-  | allMatch | Predicate<? super T> predicate | boolean |      |
+	| Function Name | Parameter | Return Type | 비고 |
+	| ------------- | -------------- | ----------- | ---- |
+	| allMatch | Predicate<? super T> predicate | boolean |      |
 
-  ```java
-  // [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
-  Stream<Integer> stream = Stream.iterate(1, n -> n+1).limit(10);
-  // true
-  boolean result = stream.allMatch(integer -> integer > 0);
-  
-  // [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
-  Stream<Integer> stream = Stream.iterate(1, n -> n+1).limit(10);
-  // false
-  boolean result = stream.allMatch(integer -> integer > 5);
-  ```
+	```java
+	// [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+	Stream<Integer> stream = Stream.iterate(1, n -> n+1).limit(10);
+	// true
+	boolean result = stream.allMatch(integer -> integer > 0);
+	
+	// [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+	Stream<Integer> stream = Stream.iterate(1, n -> n+1).limit(10);
+	// false
+	boolean result = stream.allMatch(integer -> integer > 5);
+	```
 
 - Stream.noneMatch
 
-  > Stream의 모든 Element의 predicate의 연산 결과가 False이면 True를 반환한다.
+	> Stream의 모든 Element의 predicate의 연산 결과가 False이면 True를 반환한다.
 
-  | Function Name | Parameter | Return Type | 비고 |
-  | ------------- | -------------- | ----------- | ---- |
-  | noneMatch | Predicate<? super T> predicate | boolean |      |
+	| Function Name | Parameter | Return Type | 비고 |
+	| ------------- | -------------- | ----------- | ---- |
+	| noneMatch | Predicate<? super T> predicate | boolean |      |
 
-  ```java
-  // [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
-  Stream<Integer> stream = Stream.iterate(1, n -> n+1).limit(10);
-  // true
-  boolean result = stream.noneMatch(integer -> integer > 10);
-  
-  // [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
-  Stream<Integer> stream = Stream.iterate(1, n -> n+1).limit(10);
-  // false
-  boolean result = stream.noneMatch(integer -> integer > 5);
-  ```
+	```java
+	// [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+	Stream<Integer> stream = Stream.iterate(1, n -> n+1).limit(10);
+	// true
+	boolean result = stream.noneMatch(integer -> integer > 10);
+	
+	// [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+	Stream<Integer> stream = Stream.iterate(1, n -> n+1).limit(10);
+	// false
+	boolean result = stream.noneMatch(integer -> integer > 5);
+	```
 
 - Stream.findFirst
 
-  > Stream의 첫번째 Element를 반환한다  
-  > Stream이 비어있다면 Optional.empty을 반환한다
+	> Stream의 첫번째 Element를 반환한다  
+	> Stream이 비어있다면 Optional.empty을 반환한다
 
-  | Function Name | Parameter | Return Type | 비고 |
-  | ------------- | -------------- | ----------- | ---- |
-  | findFirst | void | Optional\<T\> |      |
+	| Function Name | Parameter | Return Type | 비고 |
+	| ------------- | -------------- | ----------- | ---- |
+	| findFirst | void | Optional\<T\> |      |
 
-  ```java
-  // [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
-  Stream<Integer> stream = Stream.iterate(1, n -> n+1).limit(10);
-  // Optional[1]
-  Optional<Integer> integer = stream.findFirst();
-  ```
+	```java
+	// [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+	Stream<Integer> stream = Stream.iterate(1, n -> n+1).limit(10);
+	// Optional[1]
+	Optional<Integer> integer = stream.findFirst();
+	```
 
 - Stream.findAny
 
 	> Stream의 임의의 Element를 반환한다  
-  > Stream이 비어있다면 Optional.empty을 반환한다
+	> Stream이 비어있다면 Optional.empty을 반환한다
 	
 	| Function Name | Parameter | Return Type | 비고 |
 	| ------------- | -------------- | ----------- | ---- |
-| findAny | void | Optional\<T\> |      |
+	| findAny | void | Optional\<T\> |      |
 	
 	```java
 	// [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
